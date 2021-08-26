@@ -1,7 +1,6 @@
-import React from "react";
 import styled  from 'styled-components';
 
-import { mdiPokeball } from '@mdi/js';
+
 
 export const Bar = styled.header`
    
@@ -9,15 +8,22 @@ export const Bar = styled.header`
     background: linear-gradient(45deg,#003a70, #3d7dca);
     
 
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
+        h1{
+            color: #eadfed;
+            margin-left: 5px;
+        };
 
-    h1{
-        color: #eadfed;
-        margin-left: 15px;
-    };
+        img{
+            color: #eadfed;
+            margin-left: 15px;
+        };
+    }
 
-    img{
-        color: #eadfed;
-        size: 300px;
-    };
+    
 `;
+
