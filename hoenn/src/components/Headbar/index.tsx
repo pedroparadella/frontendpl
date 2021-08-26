@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Bar } from './style';
 
-import pokeball from '../assets/icons8-pokeball-48.png'
+import pokeball from '../../assets/icons8-pokeball-48.png'
+
+//import pokeball from '../assets/icons8-pokeball-48.png'
 
 const Headbar: React.FC = () => {
     
