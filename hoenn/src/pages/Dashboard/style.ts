@@ -25,3 +25,26 @@ export const Container = styled.div`
     }
 
 `;
+
+export const Body = styled.div`
+
+    display: flex;
+    justify-content: center;
+
+    div{
+        width: 70%;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1{
+            font-size: 24px;
+            font-weight: 150;
+            color: #003a70;
+
+        }
+        
+    }
+
+`;
