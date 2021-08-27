@@ -39,8 +39,8 @@ export const Body = styled.div`
         justify-content: space-between;
 
         h1{
-            font-size: 24px;
-            font-weight: 150;
+            font-size: 32px;
+            font-weight: 180;
             color: #003a70;
 
         }

@@ -1,5 +1,4 @@
 import React, {InputHTMLAttributes} from 'react';
-import { IconBaseProps } from 'react-icons/lib';
 
 import { Button } from './style';
 

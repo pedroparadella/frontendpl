@@ -21,8 +21,6 @@ const Dashboard: React.FC = () => {
 
             <Body>
                 <div>
-
-                    
                     <h1>Resultado da busca</h1>
                     <Button name={"Novo Card"} />
                 </div>
