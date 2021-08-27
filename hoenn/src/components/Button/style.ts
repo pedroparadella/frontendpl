@@ -12,8 +12,4 @@ export const Button = styled.button`
     color: #fef9f6;
     font-weight: 500;
     
-   
-    
-
-
 `;
