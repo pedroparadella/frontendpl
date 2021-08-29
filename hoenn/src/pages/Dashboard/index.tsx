@@ -3,7 +3,7 @@ import { FiSearch } from 'react-icons/fi'
 
 import api from '../../services/api';
 
-import SearchInput from '../../components/SearchInput';
+import SearchForm from '../../components/SearchForm';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
@@ -28,8 +28,6 @@ const Dashboard: React.FC = () => {
     const getPokemon = async (response: AxiosResponse<any>, name?: string,) => {
 
         try {
-
-
             setLoadMore(response.data.next);
 
             if (name) {
@@ -84,36 +82,46 @@ const Dashboard: React.FC = () => {
     }
 
     useEffect(() => {
-        const fetchMyAPI = async () => {
-            const response = await api.get(`pokemon?limit=20`);
-
-            getPokemon(response);
+        try {
+            fetchMyAPI();
+        } catch (error) {
+            console.log(error);
         }
 
-        fetchMyAPI();
 
     }, []);
 
+    const fetchMyAPI = async () => {
+        const response = await api.get(`pokemon?limit=20`);
+
+        getPokemon(response);
+    }
+
     const HandleSearch = async (e: FormEvent) => {
-        e.preventDefault();
+        try {
+            e.preventDefault();
 
-        const response = await api.get(`pokemon/${search}?limit=20`);
+            const response = await api.get(`pokemon/${search.toLocaleLowerCase()}`);
 
-        console.log(response.data.next);
+            await getPokemon(response, search.toLocaleLowerCase());
 
-        getPokemon(response, search);
-        setLoadMore(response.data.next);
+            setSearch('');
 
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const HandleLoadMore = async () => {
+        try {
+            const response = await api.get(loadMore);
 
-        const response = await api.get(loadMore);
+            getPokemon(response);
 
-        getPokemon(response);
-
-        setLoadMore(response.data.next);
-
+            setLoadMore(response.data.next);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const HandleNewForm = () => { }
@@ -122,18 +130,15 @@ const Dashboard: React.FC = () => {
         <>
             <Outter>
                 <Header>
-                    <form onSubmit={HandleSearch}>
-                        <SearchInput
-                            value={search}
-                            onChange={e => setSearch(e.target.value)}
-                            icon={FiSearch}
-                            name="search"
-                            placeholder="Digite aqui a sua busca..."
-                        />
-                    </form>
+                    <SearchForm
+                        fcSubmit={HandleSearch}
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        icon={FiSearch}
+                        name="search"
+                        placeholder="Digite aqui a sua busca..."
+                    />
                 </Header>
-
-
 
                 <Body>
                     <BodyHeader>
@@ -156,14 +161,12 @@ const Dashboard: React.FC = () => {
                     </CardList>
                 </Body>
 
-
-                {loadMore &&
+                {
+                    loadMore &&
                     <Button name="Carregar Mais" fcClick={HandleLoadMore}>
                         Carregar Mais
                     </Button>
                 }
-
-
 
             </Outter>
         </>
