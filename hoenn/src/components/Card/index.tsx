@@ -11,7 +11,7 @@ interface CardProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<CardProps> = ({ ...props }) => (
     <Card>
-        <img alt="pikachu" src={props.imgSrc} />
+        <img alt="img" src={props.imgSrc} />
         <hr />
         <div>
             <strong>{props.name}</strong>
