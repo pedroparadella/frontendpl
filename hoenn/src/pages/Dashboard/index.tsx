@@ -117,11 +117,11 @@ const Dashboard: React.FC = () => {
 
                 <CardList>
                     {
-                        pokemon.sort().map(p => (
+                        pokemon.sort((a, b) => (a.id < b.id) ? -1 : 1).map(p => (
                             <Card
-                                key={p.name}
-                                name={p.name}
-                                type={p.type}
+                                key={p.id}
+                                name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
+                                type={p.type.charAt(0).toUpperCase() + p.type.slice(1)}
                                 imgSrc={p.sprite}
                             />
                         ))

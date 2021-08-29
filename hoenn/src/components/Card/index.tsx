@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { Card } from './style';
+import { Card, Info, Footer } from './style';
 
 interface CardProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
@@ -9,14 +9,23 @@ interface CardProps extends InputHTMLAttributes<HTMLInputElement> {
 
 }
 
+const notImplementedYet = () => {
+    alert("Funcionalidade ainda não implementada");
+}
+
 const Input: React.FC<CardProps> = ({ ...props }) => (
     <Card>
         <img alt="img" src={props.imgSrc} />
         <hr />
-        <div>
+        <Info>
             <strong>{props.name}</strong>
             <p>{props.type}</p>
-        </div>
+        </Info>
+        <Footer>
+            <a href="#" onClick={notImplementedYet}>Excluir</a>
+            <a href="#" onClick={notImplementedYet}>Editar</a>
+        </Footer>
+
     </Card>
 );
 

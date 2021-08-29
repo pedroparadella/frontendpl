@@ -56,6 +56,7 @@ export const CardList = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 30px;
     max-width: 70vw;
     width: 100%;
