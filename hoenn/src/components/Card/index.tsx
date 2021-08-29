@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
+import { FiTrash2, FiEdit2 } from 'react-icons/fi';
 
-import { Card, Info, Footer } from './style';
+import { Card, Info, Footer, Divider, Button } from './style';
 
 interface CardProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
@@ -22,8 +23,15 @@ const Input: React.FC<CardProps> = ({ ...props }) => (
             <p>{props.type}</p>
         </Info>
         <Footer>
-            <a href="#" onClick={notImplementedYet}>Excluir</a>
-            <a href="#" onClick={notImplementedYet}>Editar</a>
+            <Button hoverColor="red">
+                <FiTrash2 size="20" color="#dd2f2f" />
+                <a href="#" onClick={notImplementedYet}>Excluir</a>
+            </Button>
+            <Divider />
+            <Button hoverColor="#ed8a50" >
+                <FiEdit2 size="20" color="#ed8a50" />
+                <a href="#" onClick={notImplementedYet}>Editar</a>
+            </Button>
         </Footer>
 
     </Card>
