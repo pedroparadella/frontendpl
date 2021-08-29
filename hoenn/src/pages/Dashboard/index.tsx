@@ -32,16 +32,22 @@ const Dashboard: React.FC = () => {
                 :
                 await api.get('pokemon?limit=20');
 
-            response.data.results.map(async (pokemonRes: any) => {
+            if (name) {
 
-                const _pokemon = await getPokemonInfo(pokemonRes.name);
+                const _pokemon = await getPokemonInfo(name);
 
-                console.log(_pokemon);
+                setPokemon([_pokemon]);
 
-                setPokemon(pokemon => [...pokemon, _pokemon]);
+            } else {
 
-            });
+                response.data.results.map(async (pokemonRes: any) => {
 
+                    const _pokemon = await getPokemonInfo(pokemonRes.name);
+
+                    setPokemon(pokemon => [...pokemon, _pokemon]);
+
+                });
+            }
 
         } catch (error) {
             console.log(error);
@@ -111,7 +117,7 @@ const Dashboard: React.FC = () => {
 
                 <CardList>
                     {
-                        pokemon.map(p => (
+                        pokemon.sort().map(p => (
                             <Card
                                 key={p.name}
                                 name={p.name}
