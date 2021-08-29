@@ -26,25 +26,19 @@ const Dashboard: React.FC = () => {
     const getPokemon = async (name?: string) => {
 
         try {
-            const response = name ?
-                await api.get(`pokemon/${name}?limit=30`)
-                :
-                await api.get('pokemon?limit=30');
 
-            let arrPokmn: Pokemon[] = [];
+            const response = name ?
+                await api.get(`pokemon/${name}?limit=20`)
+                :
+                await api.get('pokemon?limit=20');
 
             response.data.results.map(async (pokemonRes: any) => {
 
-                const pokemonInfo = await api.get(`pokemon/${pokemonRes.name}`);
+                const _pokemon = await getPokemonInfo(pokemonRes.name);
 
-                let _pokemon: Pokemon = {
-                    id: pokemonInfo.data.id,
-                    name: pokemonInfo.data.name,
-                    type: pokemonInfo.data.types[0].type.name,
-                    sprite: pokemonInfo.data.sprites.front_default
-                };
+                console.log(_pokemon);
 
-                await setPokemon([...pokemon, _pokemon]);
+                setPokemon(pokemon => [...pokemon, _pokemon]);
 
             });
 
@@ -54,7 +48,34 @@ const Dashboard: React.FC = () => {
         }
     }
 
+    const getPokemonInfo = async (name: string) => {
+        try {
+            const pokemonInfo = await api.get(`pokemon/${name}`);
 
+            let _pokemon: Pokemon = {
+                id: pokemonInfo.data.id,
+                name: pokemonInfo.data.name,
+                type: pokemonInfo.data.types[0].type.name,
+                sprite: pokemonInfo.data.sprites.front_default
+            };
+
+            return _pokemon;
+
+        } catch (error) {
+            console.log(error);
+
+            let _pokemon: Pokemon = {
+                id: 0,
+                name: '',
+                type: '',
+                sprite: ''
+            };
+
+            return _pokemon;
+
+        }
+
+    }
 
     useEffect(() => {
         getPokemon();
@@ -64,9 +85,7 @@ const Dashboard: React.FC = () => {
         e.preventDefault();
         console.log(search);
 
-        const response = await api.get(`pokemon/${search}?limit=30`);
-
-        console.log(response.data);
+        getPokemon(search);
 
     }
 
