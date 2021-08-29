@@ -6,6 +6,7 @@ import api from '../../services/api';
 import SearchForm from '../../components/SearchForm';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
+import NewCardForm from '../../components/NewCardForm';
 
 import { Header, Body, CardList, BodyHeader, Outter } from "./style";
 import { useEffect } from "react";
@@ -24,6 +25,7 @@ const Dashboard: React.FC = () => {
     const [pokemon, setPokemon] = useState<Pokemon[]>([]);
     const [loadMore, setLoadMore] = useState('');
     const [search, setSearch] = useState('');
+    const [newCard, setNewCard] = useState(false);
 
     const getPokemon = async (response: AxiosResponse<any>, name?: string,) => {
 
@@ -124,10 +126,18 @@ const Dashboard: React.FC = () => {
         }
     }
 
-    const HandleNewForm = () => { }
+    const HandleNewForm = () => {
+
+        console.log(newCard);
+        setNewCard(!newCard);
+
+    }
 
     return (
         <>
+            <NewCardForm
+                show={newCard}
+            />
             <Outter>
                 <Header>
                     <SearchForm
