@@ -7,8 +7,9 @@ import SearchInput from '../../components/SearchInput';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
-import { Header, Body, CardList, BodyHeader } from "./style";
+import { Header, Body, CardList, BodyHeader, Outter } from "./style";
 import { useEffect } from "react";
+import { AxiosResponse } from "axios";
 
 interface Pokemon {
     id: number;
@@ -21,16 +22,15 @@ interface Pokemon {
 const Dashboard: React.FC = () => {
 
     const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+    const [loadMore, setLoadMore] = useState('');
     const [search, setSearch] = useState('');
 
-    const getPokemon = async (name?: string) => {
+    const getPokemon = async (response: AxiosResponse<any>, name?: string,) => {
 
         try {
 
-            const response = name ?
-                await api.get(`pokemon/${name}?limit=20`)
-                :
-                await api.get('pokemon?limit=20');
+
+            setLoadMore(response.data.next);
 
             if (name) {
 
@@ -84,52 +84,88 @@ const Dashboard: React.FC = () => {
     }
 
     useEffect(() => {
-        getPokemon();
+        const fetchMyAPI = async () => {
+            const response = await api.get(`pokemon?limit=20`);
+
+            getPokemon(response);
+        }
+
+        fetchMyAPI();
+
     }, []);
 
     const HandleSearch = async (e: FormEvent) => {
         e.preventDefault();
-        console.log(search);
 
-        getPokemon(search);
+        const response = await api.get(`pokemon/${search}?limit=20`);
+
+        console.log(response.data.next);
+
+        getPokemon(response, search);
+        setLoadMore(response.data.next);
 
     }
 
+    const HandleLoadMore = async () => {
+
+        const response = await api.get(loadMore);
+
+        getPokemon(response);
+
+        setLoadMore(response.data.next);
+
+    }
+
+    const HandleNewForm = () => { }
+
     return (
         <>
-            <Header>
-                <form onSubmit={HandleSearch}>
-                    <SearchInput
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                        icon={FiSearch}
-                        name="search"
-                        placeholder="Digite aqui a sua busca..."
-                    />
-                </form>
-            </Header>
+            <Outter>
+                <Header>
+                    <form onSubmit={HandleSearch}>
+                        <SearchInput
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                            icon={FiSearch}
+                            name="search"
+                            placeholder="Digite aqui a sua busca..."
+                        />
+                    </form>
+                </Header>
 
-            <Body>
-                <BodyHeader>
-                    <h1>Resultado da busca</h1>
-                    <Button name={"Novo Card"} />
-                </BodyHeader>
 
-                <CardList>
-                    {
-                        pokemon.sort((a, b) => (a.id < b.id) ? -1 : 1).map(p => (
-                            <Card
-                                key={p.id}
-                                name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
-                                type={p.type.charAt(0).toUpperCase() + p.type.slice(1)}
-                                imgSrc={p.sprite}
-                            />
-                        ))
-                    }
 
-                </CardList>
-            </Body>
+                <Body>
+                    <BodyHeader>
+                        <h1>Resultado da busca</h1>
+                        <Button name={"Novo Card"} fcClick={HandleNewForm} />
+                    </BodyHeader>
 
+                    <CardList>
+                        {
+                            pokemon.sort((a, b) => (a.id < b.id) ? -1 : 1).map(p => (
+                                <Card
+                                    key={p.id}
+                                    name={p.name.charAt(0).toUpperCase() + p.name.slice(1)}
+                                    type={p.type.charAt(0).toUpperCase() + p.type.slice(1)}
+                                    imgSrc={p.sprite}
+                                />
+                            ))
+                        }
+
+                    </CardList>
+                </Body>
+
+
+                {loadMore &&
+                    <Button name="Carregar Mais" fcClick={HandleLoadMore}>
+                        Carregar Mais
+                    </Button>
+                }
+
+
+
+            </Outter>
         </>
     );
 };

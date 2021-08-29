@@ -2,11 +2,22 @@ import styled from 'styled-components';
 
 import Mudkip from "../../assets/bg-mudkip.jpg";
 
+export const Outter = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+
+`;
+
+
 export const Header = styled.div`
 
     height: 30vh;
     display: flex;
     align-items: center;
+    width: 100%;
     
     background: url(${Mudkip}) no-repeat center;
     background-size: cover;
@@ -30,6 +41,7 @@ export const Body = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25px;
     
 
 `;
@@ -70,3 +82,4 @@ export const CardList = styled.div`
 
     
 `;
+
