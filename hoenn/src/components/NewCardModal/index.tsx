@@ -13,13 +13,16 @@ interface NewCardModalProps {
     onRequestClose: () => void;
 }
 
+const notImplementedYet = () => {
+    alert("Funcionalidade ainda não implementada");
+}
+
 const customStyles = {
     content: {
         top: '0',
         left: '40%',
         right: '0',
         bottom: '0',
-
     },
 };
 
@@ -51,7 +54,7 @@ const NewCardModal: React.FC<NewCardModalProps> = (props) => {
                         <label> Nenhum arquivo selecionado</label>
                         <Button
                             name="Escolher arquivo"
-                            fcClick={() => { }}
+                            fcClick={notImplementedYet}
                         />
                     </Anexo>
                 </section>
@@ -60,7 +63,7 @@ const NewCardModal: React.FC<NewCardModalProps> = (props) => {
 
                 <Button
                     name="Criar Card"
-                    fcClick={() => { }}
+                    fcClick={notImplementedYet}
                 />
 
             </NewCardForm>
