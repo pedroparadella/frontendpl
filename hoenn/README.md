@@ -7,7 +7,10 @@ Pesquisando um pouco, descobri que o trio de lendários da região de Hoenn são
 
 ## Como executar
 
-Acesse a pasta hoenn na raiz do repositório e execute o comando abaixo
+Acesse a pasta hoenn na raiz do repositório e execute o comando abaixo para instalar as dependências necessárias
+### `npm start`
+
+Em seguida, execute o comando abaixo para levantar o ambiente
 ### `npm start`
 
 Abra [http://localhost:3000](http://localhost:3000) para executar no navegador
