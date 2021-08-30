@@ -17,21 +17,17 @@ export const Header = styled.div`
     height: 30vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     
     background: url(${Mudkip}) no-repeat center;
     background-size: cover;
 
     form{
+
         display: flex;
         justify-content: center;    
-        width: 100%;
-        
-
-        div{
-            max-width: 70vw;
-            
-        }
+        width: 70%;
     }
 
 `;
@@ -43,6 +39,9 @@ export const Body = styled.div`
     align-items: center;
     margin-bottom: 25px;
     
+    width: 100%;
+    
+    
 
 `;
 
@@ -52,6 +51,7 @@ export const BodyHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
     max-width: 70vw;
     width: 100%;
 
@@ -67,11 +67,14 @@ export const CardList = styled.div`
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 30px;
     max-width: 70vw;
     width: 100%;
+    
+
+    
 
 
     /* margin-top: 80px;

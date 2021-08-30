@@ -135,9 +135,6 @@ const Dashboard: React.FC = () => {
 
     return (
         <>
-            <NewCardForm
-                show={newCard}
-            />
             <Outter>
                 <Header>
                     <SearchForm
