@@ -6,7 +6,7 @@ import api from '../../services/api';
 import SearchForm from '../../components/SearchForm';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
-import NewCardForm from '../../components/NewCardForm';
+import NewCardModal from '../../components/NewCardModal';
 
 import { Header, Body, CardList, BodyHeader, Outter } from "./style";
 import { useEffect } from "react";
@@ -25,7 +25,16 @@ const Dashboard: React.FC = () => {
     const [pokemon, setPokemon] = useState<Pokemon[]>([]);
     const [loadMore, setLoadMore] = useState('');
     const [search, setSearch] = useState('');
-    const [newCard, setNewCard] = useState(false);
+    const [isNewCardModalOpen, setIsNewCarModalOpen] = useState(false);
+
+    const HandleOpenNewCardModal = () => {
+        setIsNewCarModalOpen(true);
+    }
+
+    const HandleCloseNewCardModal = () => {
+        setIsNewCarModalOpen(false);
+    }
+
 
     const getPokemon = async (response: AxiosResponse<any>, name?: string,) => {
 
@@ -126,15 +135,12 @@ const Dashboard: React.FC = () => {
         }
     }
 
-    const HandleNewForm = () => {
-
-        console.log(newCard);
-        setNewCard(!newCard);
-
-    }
-
     return (
         <>
+            <NewCardModal
+                isOpen={isNewCardModalOpen}
+                onRequestClose={HandleCloseNewCardModal}
+            />
             <Outter>
                 <Header>
                     <SearchForm
@@ -150,7 +156,7 @@ const Dashboard: React.FC = () => {
                 <Body>
                     <BodyHeader>
                         <h1>Resultado da busca</h1>
-                        <Button name={"Novo Card"} fcClick={HandleNewForm} />
+                        <Button name={"Novo Card"} fcClick={HandleOpenNewCardModal} />
                     </BodyHeader>
 
                     <CardList>
