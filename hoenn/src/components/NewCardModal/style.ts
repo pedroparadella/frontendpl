@@ -41,10 +41,6 @@ export const Header = styled.div`
         margin-left: 15px;
 
     }
-    
-    svg{
-        
-    }
 
 `;
 

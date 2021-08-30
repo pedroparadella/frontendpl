@@ -73,16 +73,5 @@ export const CardList = styled.div`
     max-width: 70vw;
     width: 100%;
     
-
-    
-
-
-    /* margin-top: 80px;
-    max-width: 700px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
-
-    
 `;
 

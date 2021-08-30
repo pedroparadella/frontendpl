@@ -4,10 +4,8 @@ import { Bar } from './style';
 
 import pokeball from '../../assets/icons8-pokeball-48.png'
 
-//import pokeball from '../assets/icons8-pokeball-48.png'
-
 const Headbar: React.FC = () => {
-    
+
     return (
         <Bar>
             <div>
@@ -17,5 +15,5 @@ const Headbar: React.FC = () => {
         </Bar>
     );
 }
- 
+
 export default Headbar;
