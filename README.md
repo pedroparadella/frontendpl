@@ -7,7 +7,7 @@ Seja bem-vindo, o intuito do teste não é reprovar e sim conhecer seu melhor es
 ## O que fazer
 1. Fazer um fork desse repositório e trabalhar no seu ambiente.
 2. Replicar o layout do link abaixo:\
-[Link para o layout](https://xd.adobe.com/view/c715f110-fbd4-4323-be0c-0e453c1450db-9246/?fullscreen&hints=off)
+[Link para o layout](https://xd.adobe.com/view/c715f110-fbd4-4323-be0c-0e453c1450db-9246)
 2. Utilizar a [PokeAPI](https://pokeapi.co/) para trazer os itens e renderizar nos cards da melhor forma possível. Você pode escolher quais informações e imagens vão aparecer no card.
 3. Implementar a funcionalidade de busca na melhor forma possível.
 4. Implementar a funcionalidade de paginação(carregar mais) dos cards na melhor forma possível.
