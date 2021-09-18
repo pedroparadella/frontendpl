@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const Main = styled.main`
   width: 100%;
   max-width: var(--max-width-content);
+  margin-bottom: 3rem;
 `;
 
 export const MainTitleWrapper = styled.div`

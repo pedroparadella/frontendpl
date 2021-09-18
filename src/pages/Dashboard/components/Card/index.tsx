@@ -4,7 +4,7 @@ import { CardButton } from '../CardButton';
 import * as S from './styled';
 
 export const Card = ({ image, cardText }: { image: string; cardText: string }) => {
-  const { setShowDeleteModal } = useContext(PokeContext);
+  const { setShowDeleteModal, WIP } = useContext(PokeContext);
 
   const handleOpenDeleteModal = () => {
     setShowDeleteModal(true);
@@ -17,7 +17,7 @@ export const Card = ({ image, cardText }: { image: string; cardText: string }) =
       <S.CardButtonsContainer>
         <CardButton buttonText="Excluir" customStyle="DELETE" action={handleOpenDeleteModal} />
         <S.VerticalDivisor />
-        <CardButton buttonText="Editar" customStyle="EDIT" />
+        <CardButton buttonText="Editar" customStyle="EDIT" action={WIP} />
       </S.CardButtonsContainer>
     </S.CardWrapper>
   );

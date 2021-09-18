@@ -51,6 +51,7 @@ export const CloseButton = styled.div`
   border-radius: 50%;
   right: -1.0625rem;
   top: -1.0625rem;
+  cursor: pointer;
 `;
 
 export const ModalIcon = styled.div<ModalIconProps>`

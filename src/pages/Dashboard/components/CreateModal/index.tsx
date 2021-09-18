@@ -9,7 +9,7 @@ import { Button } from '../../../../components/Button';
 import { PokeContext } from '../../../../PokeContext';
 
 export const CreateModal = () => {
-  const { showCreateModal, setShowCreateModal } = useContext(PokeContext);
+  const { showCreateModal, setShowCreateModal, WIP } = useContext(PokeContext);
 
   const handleCloseModal = () => {
     setShowCreateModal(false);
@@ -38,7 +38,7 @@ export const CreateModal = () => {
 
         <S.ButtonWrapper>
           <Button buttonText="Voltar" customStyle="UPLOAD" onClick={handleCloseModal} />
-          <Button buttonText="Criar card" />
+          <Button buttonText="Criar card" onClick={WIP} />
         </S.ButtonWrapper>
       </S.CreateModalWrapper>
     </>

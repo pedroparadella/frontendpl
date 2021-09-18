@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { getPokemon, getTotalPokemons, IPokemon } from './services/api';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface IPokeContext {
   page: IPokemon[];
@@ -11,6 +13,7 @@ interface IPokeContext {
   loadNextPage: () => void;
   isSearch: boolean;
   clearSearch: () => void;
+  WIP: () => void;
 }
 
 export const PokeContext = createContext<IPokeContext>({} as IPokeContext);
@@ -68,6 +71,10 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
     setPokemons(await downloadAllPokemons());
   }, []);
 
+  const WIP = () => {
+    toast.error('Funcionalidade ainda não implementada.');
+  };
+
   useEffect(() => {
     const pokemonsLocal = localStorage.getItem('@PokeExplorer:pokemons');
 
@@ -92,9 +99,11 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
         loadNextPage,
         clearSearch,
         isSearch,
+        WIP,
       }}
     >
       {children}
+      <ToastContainer />
     </PokeContext.Provider>
   );
 };
