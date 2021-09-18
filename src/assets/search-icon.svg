@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41.012" height="41.012" viewBox="0 0 41.012 41.012">
+  <defs>
+    <style>
+      .ab,
+      .cb {
+        fill: none;
+      }
+
+      .ab {
+        stroke: #a4a4a4;
+        stroke-width: 3px;
+      }
+
+      .bb {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g transform="translate(-186.771 -129.886)">
+    <g transform="translate(-719.032 863.863) rotate(-45)">
+      <g class="ab" transform="translate(1145 136)">
+        <circle class="bb" cx="14.5" cy="14.5" r="14.5" />
+        <circle class="cb" cx="14.5" cy="14.5" r="13" />
+      </g>
+      <path class="ab" d="M-5008.5,66.861V79.619" transform="translate(6168 97)" />
+    </g>
+  </g>
+</svg>
