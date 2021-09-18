@@ -15,6 +15,7 @@ export const Variables = css`
     --yellow: #ffc400;
     --green: #51c421;
     --brown: #b55b52;
+    --red-extra-light: #db25250f;
     --red-light: #c64049;
     --red-medium: #a02724;
     --red-strong: #db2525;
