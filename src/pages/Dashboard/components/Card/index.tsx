@@ -1,7 +1,5 @@
 import { CardButton } from '../CardButton';
 import * as S from './styled';
-import { ReactComponent as EditIcon } from '../../../../assets/edit-icon.svg';
-import { ReactComponent as DeleteIcon } from '../../../../assets/delete-icon.svg';
 
 export const Card = ({ image, cardText }: { image: string; cardText: string }) => {
   return (
@@ -10,9 +8,9 @@ export const Card = ({ image, cardText }: { image: string; cardText: string }) =
       <S.Divisor />
       <S.CardDescription>{cardText}</S.CardDescription>
       <S.CardButtonsContainer>
-        <CardButton buttonText="Excluir" icon={DeleteIcon} />
+        <CardButton buttonText="Excluir" type="DELETE" />
         <S.VerticalDivisor />
-        <CardButton buttonText="Editar" icon={EditIcon} />
+        <CardButton buttonText="Editar" type="EDIT" />
       </S.CardButtonsContainer>
     </S.CardWrapper>
   );

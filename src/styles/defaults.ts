@@ -20,6 +20,7 @@ export const Defaults = css`
 
   button {
     cursor: pointer;
+    font-family: 'Muli';
   }
 
   [disabled] {

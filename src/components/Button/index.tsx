@@ -1,5 +1,15 @@
 import * as S from './styled';
 
-export const Button = ({ buttonText }: { buttonText: string }) => {
-  return <S.Button>{buttonText}</S.Button>;
+interface ButtonProps {
+  buttonText: string;
+  width?: number;
+  customStyle?: 'DELETE-DARK' | 'DELETE-LIGHT';
+}
+
+export const Button = ({ buttonText, width, customStyle }: ButtonProps) => {
+  return (
+    <S.Button width={width} customStyle={customStyle}>
+      {buttonText}
+    </S.Button>
+  );
 };
