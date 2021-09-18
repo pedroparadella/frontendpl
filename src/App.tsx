@@ -1,10 +1,12 @@
+import { Dashboard } from './pages/Dashboard';
+import { PokeContext } from './PokeContext';
 import { GlobalStyle } from './styles/global';
 
 export const App = () => {
   return (
-    <div className="App">
-      <h2>Poké Explorer</h2>
+    <PokeContext.Provider value={[]}>
+      <Dashboard />
       <GlobalStyle />
-    </div>
+    </PokeContext.Provider>
   );
 };
