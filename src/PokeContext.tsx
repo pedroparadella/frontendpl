@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { getPokemon, getTotalPokemons, IPokemon } from './services/api';
+import { getAllPokemons, getFirstPage, IPokemon } from './services/api';
 import 'react-toastify/dist/ReactToastify.css';
 
 interface IPokeContext {
@@ -26,27 +26,6 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
 
-  const downloadFirstPage = async (): Promise<IPokemon[]> => {
-    const promises = [];
-
-    for (let i = 1; i < 16; i += 1) {
-      promises.push(getPokemon(i));
-    }
-
-    return [...(await Promise.all(promises))];
-  };
-
-  const downloadAllPokemons = async (): Promise<IPokemon[]> => {
-    const totalPokemons = await getTotalPokemons();
-    const promises = [];
-
-    for (let i = 1; i < totalPokemons + 1; i += 1) {
-      promises.push(getPokemon(i));
-    }
-
-    return [...(await Promise.all(promises))];
-  };
-
   const searchByName = (name: string) => {
     const resultSet = pokemons.filter(i => i.name.includes(name));
     setSearchResult(resultSet);
@@ -66,9 +45,10 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
       : setPage(prevState => [...prevState, ...pokemons.slice(prevState.length, prevState.length + 16)]);
   };
 
+  // GraphQL Experimental
   const downloadContent = useCallback(async () => {
-    setPage(await downloadFirstPage());
-    const allPokemons = await downloadAllPokemons();
+    setPage(await getFirstPage());
+    const allPokemons = await getAllPokemons();
     setPokemons(allPokemons);
     localStorage.setItem('@PokeExplorer:pokemons', JSON.stringify(allPokemons));
   }, []);
