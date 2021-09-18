@@ -68,7 +68,9 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
 
   const downloadContent = useCallback(async () => {
     setPage(await downloadFirstPage());
-    setPokemons(await downloadAllPokemons());
+    const allPokemons = await downloadAllPokemons();
+    setPokemons(allPokemons);
+    localStorage.setItem('@PokeExplorer:pokemons', JSON.stringify(allPokemons));
   }, []);
 
   const WIP = () => {
