@@ -18,7 +18,9 @@ export const CardWrapper = styled.article`
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
   background-image: ${props => `url(${props.image})`};
-  background-size: cover;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid var(--grey-medium);
   border-radius: 50%;
   height: 5.9375rem;
@@ -36,6 +38,7 @@ export const CardDescription = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-transform: capitalize;
 `;
 
 export const CardButtonsContainer = styled.div`
