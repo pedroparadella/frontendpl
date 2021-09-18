@@ -3,7 +3,6 @@ import { css } from 'styled-components';
 export const Defaults = css`
   html {
     font-size: 16px;
-    font-family: 'Muli';
 
     @media (max-width: 1080px) {
       font-size: 93.75%;
@@ -16,11 +15,15 @@ export const Defaults = css`
 
   * {
     -webkit-font-smoothing: antialiased;
+    font-family: 'Muli';
+  }
+
+  body {
+    background: var(--grey-medium-light);
   }
 
   button {
     cursor: pointer;
-    font-family: 'Muli';
   }
 
   [disabled] {

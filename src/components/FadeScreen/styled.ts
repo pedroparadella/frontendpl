@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const FadeBackground = styled.div`
+interface FadeBackgroundProps {
+  show: boolean;
+}
+
+export const FadeBackground = styled.div<FadeBackgroundProps>`
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -11,4 +15,14 @@ export const FadeBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: 0.2s ease-in-out opacity;
+  pointer-events: visible;
+
+  ${props =>
+    !props.show &&
+    css`
+      pointer-events: none;
+      opacity: 0;
+    `}
 `;

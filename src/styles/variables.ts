@@ -6,9 +6,10 @@ export const Variables = css`
     --white-medium: #f5f5f5;
     --white-strong: #ebebeb;
     --grey-light: #f0f0f0;
+    --grey-medium-light: #f6f4f6;
     --grey-medium: #e6e6e6;
     --grey-medium-strong: #e0e0e0;
-    --grey-strong: #f6f4f6;
+    --grey-strong: #b9b9b9;
     --pink-light: #f9f0fc;
     --pink-medium: #edd8f3;
     --pink-strong: #ae276f;

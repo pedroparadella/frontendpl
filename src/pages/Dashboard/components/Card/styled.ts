@@ -49,5 +49,5 @@ export const CardButtonsContainer = styled.div`
 
 export const VerticalDivisor = styled.div`
   height: 1.375rem;
-  border-left: 1px solid var(--grey-strong);
+  border-left: 1px solid var(--grey-medium-light);
 `;

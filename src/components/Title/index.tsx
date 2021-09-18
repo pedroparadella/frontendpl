@@ -1,5 +1,5 @@
 import * as S from './styled';
 
-export const Title = ({ titleText }: { titleText: string }) => {
-  return <S.Title>{titleText}</S.Title>;
+export const Title = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  return <S.Title className={className}>{children}</S.Title>;
 };
