@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   --grey-light: #F0F0F0;
   --grey-medium: #E6E6E6;
   --grey-medium-strong: #E0E0E0;
+  --grey-strong: #F6F4F6;
   --pink-light: #F9F0FC;
   --pink-medium: #EDD8F3;
   --pink-strong: #AE276F;
@@ -24,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   --black-light: #454545;
   --black-medium: #263238;
   --black-strong: #000000;
+  --max-width: 90rem;
 }
 
 html {
@@ -45,7 +47,7 @@ html {
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-  background: var(---background);
+  background: var(--grey-strong);
   margin: 0;
   padding: 0;
   font-weight: normal;
