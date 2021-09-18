@@ -27,6 +27,10 @@ export const ModalContainer = styled.div<ModalContainerProps>`
       opacity: 1;
       pointer-events: auto;
     `}
+
+  @media (max-width: 720px) {
+    width: 80%;
+  }
 `;
 
 export const ModalWrapper = styled.div`
@@ -88,6 +92,10 @@ export const Divisor = styled.div`
   width: 22.75rem;
   border-top: 0.0625rem solid var(--grey-medium);
   margin: 1.75rem 0 1.4375rem;
+
+  @media (max-width: 720px) {
+    width: 80%;
+  }
 `;
 
 export const ModalButtonsContainer = styled.div`
@@ -95,4 +103,8 @@ export const ModalButtonsContainer = styled.div`
   width: 100%;
   justify-content: center;
   gap: 1.0625rem;
+
+  @media (max-width: 720px) {
+    width: 80%;
+  }
 `;

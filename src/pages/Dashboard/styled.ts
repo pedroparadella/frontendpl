@@ -18,6 +18,11 @@ export const MainTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 export const CardsWrapper = styled.div`
@@ -26,4 +31,8 @@ export const CardsWrapper = styled.div`
   grid-gap: 2.3125rem 1.1563rem;
   grid-template-columns: repeat(auto-fit, 14.625rem);
   justify-content: space-between;
+
+  @media (max-width: 720px) {
+    justify-content: center;
+  }
 `;
