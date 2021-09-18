@@ -29,7 +29,7 @@ export const CardsWrapper = styled.div`
   margin: 0 var(--margin-content);
   display: grid;
   grid-gap: 2.3125rem 1.1563rem;
-  grid-template-columns: repeat(auto-fit, 14.625rem);
+  grid-template-columns: repeat(auto-fill, 14.625rem);
   justify-content: space-between;
 
   @media (max-width: 720px) {
