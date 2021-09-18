@@ -26,6 +26,8 @@ export const GlobalStyle = createGlobalStyle`
   --black-medium: #263238;
   --black-strong: #000000;
   --max-width: 90rem;
+  --max-width-content: 65.375rem;
+  --margin-content: 1rem;
 }
 
 html {

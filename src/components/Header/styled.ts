@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-// export const Logo = styled.div`
-//   background-image: url('../../assets/logo.svg');
-//   background-size: contain;
-//   background-position: center;
-//   height: 100%;
-//   width: 12.5rem;
-//   border: 2px solid green;
-// `;
-
 export const LogoWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -16,6 +7,7 @@ export const LogoWrapper = styled.div`
 `;
 
 export const Header = styled.header`
+  width: 100%;
   display: flex;
   justify-content: center;
   height: 4rem;
