@@ -21,8 +21,8 @@ export const MainTitleWrapper = styled.div`
 
 export const CardsWrapper = styled.div`
   margin: 0 var(--margin-content);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.3125rem 1.1563rem;
+  display: grid;
+  grid-gap: 2.3125rem 1.1563rem;
+  grid-template-columns: repeat(auto-fit, 14.625rem);
   justify-content: space-between;
 `;

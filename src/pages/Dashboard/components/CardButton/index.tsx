@@ -3,11 +3,17 @@ import * as S from './styled';
 import { ReactComponent as EditIcon } from '../../../../assets/edit-icon.svg';
 import { ReactComponent as DeleteIcon } from '../../../../assets/delete-icon.svg';
 
-export const CardButton = ({ buttonText, type }: { buttonText: string; type: 'DELETE' | 'EDIT' }) => {
+interface CardButtonProps {
+  buttonText: string;
+  customStyle: 'DELETE' | 'EDIT';
+  action?: () => void;
+}
+
+export const CardButton = ({ buttonText, customStyle, action }: CardButtonProps) => {
   return (
-    <S.CardButtonWrapper>
-      <SvgIcon Icon={type === 'EDIT' ? EditIcon : DeleteIcon} />
-      <S.CardButtonText type={type}>{buttonText}</S.CardButtonText>
+    <S.CardButtonWrapper onClick={action} customStyle={customStyle}>
+      <SvgIcon Icon={customStyle === 'EDIT' ? EditIcon : DeleteIcon} />
+      <S.CardButtonText>{buttonText}</S.CardButtonText>
     </S.CardButtonWrapper>
   );
 };

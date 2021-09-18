@@ -4,6 +4,31 @@ interface ModalIconProps {
   backgroundColor: 'DELETE' | 'INFO' | 'CONFIRM';
 }
 
+interface ModalContainerProps {
+  show: boolean;
+}
+
+export const ModalContainer = styled.div<ModalContainerProps>`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out all;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+
+  ${props =>
+    props.show &&
+    css`
+      opacity: 1;
+      pointer-events: auto;
+    `}
+`;
+
 export const ModalWrapper = styled.div`
   position: relative;
   background-color: white;
