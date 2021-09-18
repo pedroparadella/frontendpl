@@ -5,7 +5,7 @@ export const SearchBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: calc(100vw / 5.5);
   min-height: 9.375rem;
   background-image: url(${searchBg});

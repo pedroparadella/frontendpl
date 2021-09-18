@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { FadeScreen } from '../../../../components/FadeScreen';
 import { SvgIcon } from '../../../../components/SvgContainer';
 import { ReactComponent as CreateIcon } from '../../../../assets/create-icon.svg';
@@ -5,12 +6,19 @@ import { ReactComponent as CreateIcon } from '../../../../assets/create-icon.svg
 import * as S from './styled';
 import { FileInput } from '../FileInput';
 import { Button } from '../../../../components/Button';
+import { PokeContext } from '../../../../PokeContext';
 
-export const CreateModal = ({ show }: { show: boolean }) => {
+export const CreateModal = () => {
+  const { showCreateModal, setShowCreateModal } = useContext(PokeContext);
+
+  const handleCloseModal = () => {
+    setShowCreateModal(false);
+  };
+
   return (
     <>
-      <FadeScreen show={show} />
-      <S.CreateModalWrapper show={show}>
+      <FadeScreen show={showCreateModal} />
+      <S.CreateModalWrapper show={showCreateModal}>
         <S.HeaderContainer>
           <SvgIcon Icon={CreateIcon} />
           <S.TitleModal>Criar card</S.TitleModal>
@@ -29,7 +37,7 @@ export const CreateModal = ({ show }: { show: boolean }) => {
         <S.Divisor />
 
         <S.ButtonWrapper>
-          <Button buttonText="Voltar" customStyle="UPLOAD" />
+          <Button buttonText="Voltar" customStyle="UPLOAD" onClick={handleCloseModal} />
           <Button buttonText="Criar card" />
         </S.ButtonWrapper>
       </S.CreateModalWrapper>
