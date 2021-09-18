@@ -21,7 +21,6 @@ export const Reset = css`
   p,
   ol,
   ul {
-    background: var(--grey-strong);
     margin: 0;
     padding: 0;
     font-weight: normal;

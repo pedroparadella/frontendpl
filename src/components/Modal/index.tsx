@@ -5,9 +5,20 @@ import { ReactComponent as DeleteIcon } from '../../assets/delete-icon.svg';
 import { SvgIcon } from '../SvgContainer';
 import { ReactComponent as CloseIcon } from '../../assets/close-icon.svg';
 
-export const Modal = ({ title, text, type }: { title: string; text: string; type: 'DELETE' | 'INFO' | 'CONFIRM' }) => {
+export const Modal = ({
+  title,
+  text,
+  type,
+  show,
+}: {
+  title: string;
+  text: string;
+  type: 'DELETE' | 'INFO' | 'CONFIRM';
+  show: boolean;
+}) => {
   return (
-    <FadeScreen>
+    <>
+      <FadeScreen show={show} />
       <S.ModalWrapper>
         {/* O ícone que vocês usaram no layout não estava disponível para baixar :( */}
         <S.CloseButton>
@@ -25,6 +36,6 @@ export const Modal = ({ title, text, type }: { title: string; text: string; type
           <Button buttonText="Cancelar" width={150} customStyle="DELETE-LIGHT" />
         </S.ModalButtonsContainer>
       </S.ModalWrapper>
-    </FadeScreen>
+    </>
   );
 };

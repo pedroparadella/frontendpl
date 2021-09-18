@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface ButtonProps {
   width?: number;
-  customStyle?: 'DELETE-DARK' | 'DELETE-LIGHT';
+  customStyle?: 'DELETE-DARK' | 'DELETE-LIGHT' | 'UPLOAD';
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -38,6 +38,15 @@ export const Button = styled.button<ButtonProps>`
       background-color: var(--white-light);
       color: var(--red-strong);
       border: 1px solid var(--red-strong);
+    `}
+
+    ${props =>
+    props.customStyle === 'UPLOAD' &&
+    css`
+      background-color: var(--white-light);
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      box-shadow: 0px 3px 6px #e763162e;
     `}
 
   &:hover {
