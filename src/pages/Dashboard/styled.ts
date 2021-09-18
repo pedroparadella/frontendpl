@@ -12,12 +12,16 @@ export const Main = styled.main`
 `;
 
 export const MainTitleWrapper = styled.div`
-  margin-top: 2rem;
+  margin: 2rem var(--margin-content);
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-export const CardsWrapper = styled.article`
-  border: 1px solid red;
+export const CardsWrapper = styled.div`
+  margin: 0 var(--margin-content);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.3125rem 1.1563rem;
+  justify-content: space-between;
 `;
