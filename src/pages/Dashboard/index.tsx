@@ -10,7 +10,7 @@ import { CreateModal } from './components/CreateModal';
 import { PokeContext } from '../../PokeContext';
 
 export const Dashboard = () => {
-  const { page, setShowCreateModal, showDeleteModal, setShowDeleteModal, loadNextPage, isSearch } =
+  const { page, setShowCreateModal, showDeleteModal, setShowDeleteModal, loadNextPage, isSearch, pokemons } =
     useContext(PokeContext);
 
   const handleCreate = () => {
@@ -57,7 +57,9 @@ export const Dashboard = () => {
             <Card image={poke.image} cardText={poke.name} key={poke.id} />
           ))}
         </S.CardsWrapper>
-        {page.length === 0 && <S.NoResult>Nenhum resultado encontrado. :(</S.NoResult>}
+        {page.length === 0 && pokemons.length === 0 && <S.Message>Carregando primeira página...</S.Message>}
+        {page.length !== 0 && pokemons.length === 0 && <S.Message>Carregando próxima página...</S.Message>}
+        {page.length === 0 && pokemons.length !== 0 && <S.Message>Nenhum resultado encontrado. :(</S.Message>}
       </S.Main>
     </S.Container>
   );

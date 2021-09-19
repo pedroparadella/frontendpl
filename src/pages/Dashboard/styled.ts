@@ -21,7 +21,9 @@ export const MainTitleWrapper = styled.div`
 
   @media (max-width: 720px) {
     flex-direction: column-reverse;
-    gap: 1rem;
+    > button {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -37,7 +39,7 @@ export const CardsWrapper = styled.div`
   }
 `;
 
-export const NoResult = styled.p`
+export const Message = styled.p`
   text-align: center;
   margin-top: 2rem;
 `;
