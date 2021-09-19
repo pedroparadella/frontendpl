@@ -57,6 +57,7 @@ export const Dashboard = () => {
             <Card image={poke.image} cardText={poke.name} key={poke.id} />
           ))}
         </S.CardsWrapper>
+        {page.length === 0 && <S.NoResult>Nenhum resultado encontrado. :(</S.NoResult>}
       </S.Main>
     </S.Container>
   );

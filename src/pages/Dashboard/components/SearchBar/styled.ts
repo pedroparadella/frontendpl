@@ -1,5 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import searchBg from '../../../../assets/search-bg.png';
+
+interface ClearSearchProps {
+  show: boolean;
+}
 
 export const SearchBackground = styled.div`
   display: flex;
@@ -41,4 +45,18 @@ export const SearchIcon = styled.div`
   cursor: pointer;
   width: 3.0625rem;
   height: 3.0625rem;
+`;
+
+export const ClearSearch = styled.div<ClearSearchProps>`
+  font-size: 0.8rem;
+  right: 80px;
+  margin: 0 1rem;
+  cursor: pointer;
+  display: none;
+
+  ${props =>
+    props.show &&
+    css`
+      display: flex;
+    `}
 `;
