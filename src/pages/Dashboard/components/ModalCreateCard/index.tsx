@@ -4,11 +4,11 @@ import { SvgIcon } from '../../../../components/SvgContainer';
 import { ReactComponent as CreateIcon } from '../../../../assets/create-icon.svg';
 
 import * as S from './styled';
-import { FileInput } from '../FileInput';
-import { Button } from '../../../../components/Button';
+import { FileInput } from '../../../../components/FileInput';
 import { PokeContext } from '../../../../PokeContext';
+import { Button } from '../../../../components/Button';
 
-export const CreateModal = () => {
+export const ModalCreateCard = () => {
   const { showCreateModal, setShowCreateModal, WIP } = useContext(PokeContext);
 
   const handleCloseModal = () => {
