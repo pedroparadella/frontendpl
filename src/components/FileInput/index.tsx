@@ -1,5 +1,5 @@
 import { SyntheticEvent, useRef, useState } from 'react';
-import { Button } from '../../../../components/Button';
+import { Button } from '../Button';
 import * as S from './styled';
 
 export const FileInput = () => {

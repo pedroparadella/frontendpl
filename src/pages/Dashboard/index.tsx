@@ -6,7 +6,7 @@ import { Title } from '../../components/Title';
 import { Button } from '../../components/Button';
 import { Card } from './components/Card';
 import { Modal } from '../../components/Modal';
-import { CreateModal } from './components/CreateModal';
+import { ModalCreateCard } from './components/ModalCreateCard';
 import { PokeContext } from '../../PokeContext';
 
 export const Dashboard = () => {
@@ -42,7 +42,7 @@ export const Dashboard = () => {
         cancelText="Cancelar"
         actionText="Excluir"
       />
-      <CreateModal />
+      <ModalCreateCard />
       <Header />
       <SearchBar />
 
