@@ -5,6 +5,9 @@ Tudo bem?! 😊
 
 Seja bem-vindo, o projeto está responsivo e com cache local para salvar os pokemons. Fiz isso para evitar ficar fazendo muitas chamadas atoa para a Poke Api. Ele primeiro realiza uma chamada para buscar a primeira página e já renderiza para o usuário, enquanto no background busca a lista com todos os pokemons e salva localmente para efetuar as operações de carregamento de página e busca. A paginação está automática conforme o usuário vai descendo a página.
 
+## Demo
+https://poke-explorer.herokuapp.com/
+
 ## Como executar o projeto
 
 1. Clone o projeto para seu ambiente local
@@ -26,10 +29,10 @@ yarn start
 - React 17
 - TypeScript
 - Styled-components
-- Axios
 - React Toastify
 - Eslint
 - Prettier
 - Husky
 - Commitlint
+- GraphQL
 
