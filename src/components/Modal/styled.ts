@@ -59,7 +59,7 @@ export const CloseButton = styled.div`
 `;
 
 export const ModalIcon = styled.div<ModalIconProps>`
-  border: 6px solid var(--grey-medium);
+  border: 0.375rem solid var(--grey-medium);
   border-radius: 50%;
   height: 9.9375rem;
   width: 9.9375rem;

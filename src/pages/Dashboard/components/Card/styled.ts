@@ -13,7 +13,7 @@ export const CardWrapper = styled.article`
   align-items: center;
   box-shadow: 0rem 0.1875rem 0.375rem var(--grey-medium);
   border-radius: 0.5rem;
-  background-color: var(--white-light);
+  background-color: var(--white);
 `;
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
@@ -52,5 +52,5 @@ export const CardButtonsContainer = styled.div`
 
 export const VerticalDivisor = styled.div`
   height: 1.375rem;
-  border-left: 1px solid var(--grey-medium-light);
+  border-left: 1px solid var(--grey-light);
 `;

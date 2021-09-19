@@ -23,7 +23,7 @@ export const SearchInputWrapper = styled.div`
   padding: 0 1.75rem;
   width: 100%;
   max-width: var(--max-width-content);
-  background-color: var(--white-light);
+  background-color: var(--white);
   border-radius: 0.5rem;
   margin: 0 var(--margin-content);
   height: 4.6875rem;
@@ -49,7 +49,7 @@ export const SearchIcon = styled.div`
 
 export const ClearSearch = styled.div<ClearSearchProps>`
   font-size: 0.8rem;
-  right: 80px;
+  right: 5rem;
   margin: 0 1rem;
   cursor: pointer;
   display: none;

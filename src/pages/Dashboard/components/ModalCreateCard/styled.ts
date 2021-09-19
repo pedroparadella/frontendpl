@@ -13,7 +13,7 @@ export const CreateModalWrapper = styled.form<CreateModalWrapperProps>`
   position: fixed;
   top: 0;
   right: -50rem;
-  background-color: var(--white-light);
+  background-color: var(--white);
   padding: 2.5625rem 2rem;
   transition: 0.3s ease-in-out all;
 
@@ -63,8 +63,8 @@ export const TextInput = styled.input`
 `;
 
 export const Divisor = styled.div`
-  border-bottom: 1px solid var(--grey-light);
-  margin: 50px 0 26px;
+  border-bottom: 1px solid var(--grey-medium);
+  margin: 3.125rem 0 1.625rem;
 `;
 
 export const ButtonWrapper = styled.div`

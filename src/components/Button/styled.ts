@@ -11,7 +11,7 @@ export const Button = styled.button<ButtonProps>`
   height: 3rem;
   display: flex;
   align-items: center;
-  color: var(--white-light);
+  color: var(--white);
   border-radius: 0.5rem;
   padding: 0.75rem 2.5rem;
   box-shadow: 0rem 0.1875rem 0.375rem #92207242;
@@ -35,7 +35,7 @@ export const Button = styled.button<ButtonProps>`
     ${props =>
     props.customStyle === 'DELETE-LIGHT' &&
     css`
-      background-color: var(--white-light);
+      background-color: var(--white);
       color: var(--red-strong);
       border: 1px solid var(--red-strong);
     `}
@@ -43,10 +43,10 @@ export const Button = styled.button<ButtonProps>`
     ${props =>
     props.customStyle === 'UPLOAD' &&
     css`
-      background-color: var(--white-light);
+      background-color: var(--white);
       color: var(--orange);
       border: 1px solid var(--orange);
-      box-shadow: 0px 3px 6px #e763162e;
+      box-shadow: 0rem 0.1875rem 0.375rem #e763162e;
     `}
 
   &:hover {
