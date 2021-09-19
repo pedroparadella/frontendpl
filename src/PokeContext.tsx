@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface IPokeContext {
   page: IPokemon[];
+  pokemons: IPokemon[];
   showCreateModal: boolean;
   setShowCreateModal: (v: boolean) => void;
   showDeleteModal: boolean;
@@ -73,6 +74,7 @@ export const PokeProvider = ({ children }: { children: ReactNode }) => {
     <PokeContext.Provider
       value={{
         page,
+        pokemons,
         showCreateModal,
         setShowCreateModal,
         showDeleteModal,
