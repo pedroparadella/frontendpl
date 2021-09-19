@@ -19,7 +19,7 @@ export const Defaults = css`
   }
 
   body {
-    background: var(--grey-medium-light);
+    background: var(--grey-light);
   }
 
   button {
