@@ -51,7 +51,7 @@ export const getAllPokemons = async (): Promise<IPokemon[]> => {
     offset: 0,
   };
 
-  const { data } = await fetch('https://graphql-pokeapi.graphcdn.app/', {
+  return fetch('https://graphql-pokeapi.graphcdn.app/', {
     credentials: 'omit',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -59,7 +59,9 @@ export const getAllPokemons = async (): Promise<IPokemon[]> => {
       variables: gqlVariables,
     }),
     method: 'POST',
-  }).then(res => res.json());
-
-  return data.pokemons.results;
+  })
+    .then(response => response.json())
+    .then(parsedResponse =>
+      parsedResponse.data.pokemons.results.map((i: IPokemon) => ({ ...i, name: i.name.split('-').join(' ') })),
+    );
 };
