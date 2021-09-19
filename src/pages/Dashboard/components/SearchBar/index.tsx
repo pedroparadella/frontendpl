@@ -7,6 +7,7 @@ import { PokeContext } from '../../../../PokeContext';
 export const SearchBar = () => {
   const [search, setSearch] = useState('');
   const { searchByName, clearSearch } = useContext(PokeContext);
+
   const handleClick = () => {
     const searchQuery = search.replace(/ /g, '');
     searchQuery === '' ? clearSearch() : searchByName(searchQuery);
@@ -19,6 +20,11 @@ export const SearchBar = () => {
     }
   };
 
+  const handleClearSearch = () => {
+    setSearch('');
+    clearSearch();
+  };
+
   return (
     <>
       <S.SearchBackground>
@@ -29,6 +35,11 @@ export const SearchBar = () => {
             onChange={e => setSearch(e.currentTarget.value)}
             onKeyUp={e => handleKeyUp(e)}
           />
+          <S.ClearSearch onClick={handleClearSearch} show={search !== ''}>
+            Limpar
+            <br />
+            Busca
+          </S.ClearSearch>
           <S.SearchIcon onClick={handleClick}>
             <SvgIcon Icon={SearchIcon} />
           </S.SearchIcon>

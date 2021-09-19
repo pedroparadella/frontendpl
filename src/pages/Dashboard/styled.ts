@@ -20,7 +20,7 @@ export const MainTitleWrapper = styled.div`
   align-items: center;
 
   @media (max-width: 720px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 1rem;
   }
 `;
@@ -35,4 +35,9 @@ export const CardsWrapper = styled.div`
   @media (max-width: 720px) {
     justify-content: center;
   }
+`;
+
+export const NoResult = styled.p`
+  text-align: center;
+  margin-top: 2rem;
 `;
