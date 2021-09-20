@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b22b69"/>
+      <stop offset="1" stop-color="#e25e1e"/>
+    </linearGradient>
+  </defs>
+  <g id="create-icon" transform="translate(-830 -41)">
+    <g id="Retângulo_3" data-name="Retângulo 3" transform="translate(830 44)" fill="#fff" stroke="#ebebeb" stroke-width="1">
+      <rect width="37" height="43" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="36" height="42" rx="2.5" fill="none"/>
+    </g>
+    <circle id="Elipse_3" data-name="Elipse 3" cx="9" cy="9" r="9" transform="translate(840 51)" fill="#ebebeb"/>
+    <circle id="Elipse_4" data-name="Elipse 4" cx="9" cy="9" r="9" transform="translate(858 41)" fill="url(#linear-gradient)"/>
+    <path id="Caminho_3" data-name="Caminho 3" d="M-3594-49.268v6.261" transform="translate(4461 96)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Caminho_4" data-name="Caminho 4" d="M-3594-49.268v6.261" transform="translate(913.137 -3544.137) rotate(-90)" fill="none" stroke="#fff" stroke-width="1"/>
+    <rect id="Retângulo_4" data-name="Retângulo 4" width="21" height="3" transform="translate(838 76)" fill="#ebebeb"/>
+  </g>
+</svg>
