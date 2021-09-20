@@ -1,28 +1,32 @@
 import { useContext, useState } from 'react';
 import * as S from './styled';
 import { ReactComponent as SearchIcon } from '../../../../assets/search-icon.svg';
+import { ReactComponent as CloseIcon } from '../../../../assets/clear-search-icon.svg';
 import { SvgIcon } from '../../../../components/SvgContainer';
 import { PokeContext } from '../../../../PokeContext';
 
 export const SearchBar = () => {
   const [search, setSearch] = useState('');
-  const { searchByName, clearSearch } = useContext(PokeContext);
+  const { searchByName, clearSearch, isSearch } = useContext(PokeContext);
 
   const handleClick = () => {
     const searchQuery = search.replace(/ /g, '');
     searchQuery === '' ? clearSearch() : searchByName(searchQuery);
   };
 
-  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.code === 'Enter') {
-      const searchQuery = search.replace(/ /g, '');
-      searchQuery === '' ? clearSearch() : searchByName(searchQuery);
-    }
-  };
-
   const handleClearSearch = () => {
     setSearch('');
     clearSearch();
+  };
+
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter' || e.code === 'NumpadEnter') {
+      const searchQuery = search.replace(/ /g, '');
+      searchQuery === '' ? clearSearch() : searchByName(searchQuery);
+    }
+    if (e.code === 'Escape') {
+      handleClearSearch();
+    }
   };
 
   return (
@@ -35,10 +39,8 @@ export const SearchBar = () => {
             onChange={e => setSearch(e.currentTarget.value)}
             onKeyUp={e => handleKeyUp(e)}
           />
-          <S.ClearSearch onClick={handleClearSearch} show={search !== ''}>
-            Limpar
-            <br />
-            Busca
+          <S.ClearSearch onClick={handleClearSearch} show={isSearch}>
+            <SvgIcon Icon={CloseIcon} />
           </S.ClearSearch>
           <S.SearchIcon onClick={handleClick}>
             <SvgIcon Icon={SearchIcon} />

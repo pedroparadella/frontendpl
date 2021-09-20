@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
-export const SvgContainer = styled.div<{
+interface SvgContainerProps {
   height?: number;
   width?: number;
-}>`
+}
+
+export const SvgContainer = styled.div<SvgContainerProps>`
   height: 'auto';
   width: 'auto';
   display: inline-flex;

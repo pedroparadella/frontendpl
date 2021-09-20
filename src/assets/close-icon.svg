@@ -1,6 +1,11 @@
-<svg id="Componente_1_1" data-name="Componente 1 – 1" xmlns="http://www.w3.org/2000/svg" width="6.296" height="6.303" viewBox="0 0 6.296 6.303">
+<svg id="Componente_1_1" data-name="Componente 1 – 1" xmlns="http://www.w3.org/2000/svg" width="6.296" height="6.303"
+  viewBox="0 0 6.296 6.303">
   <g id="Grupo_1" data-name="Grupo 1" transform="translate(-511.851 -507.747)">
-    <path id="Stroke_2" data-name="Stroke 2" d="M.22.22A.75.75,0,0,1,1.2.147L1.28.22l4.8,4.8A.75.75,0,0,1,5.1,6.15l-.084-.073L.22,1.28A.75.75,0,0,1,.22.22Z" transform="translate(511.851 507.747)" fill="#fff"/>
-    <path id="Stroke_1" data-name="Stroke 1" d="M5.012.22A.75.75,0,0,1,6.145,1.2l-.073.084L1.28,6.072A.75.75,0,0,1,.147,5.1L.22,5.012Z" transform="translate(511.853 507.758)" fill="#fff"/>
+    <path id="Stroke_2" data-name="Stroke 2"
+      d="M.22.22A.75.75,0,0,1,1.2.147L1.28.22l4.8,4.8A.75.75,0,0,1,5.1,6.15l-.084-.073L.22,1.28A.75.75,0,0,1,.22.22Z"
+      transform="translate(511.851 507.747)" fill="#fff" />
+    <path id="Stroke_1" data-name="Stroke 1"
+      d="M5.012.22A.75.75,0,0,1,6.145,1.2l-.073.084L1.28,6.072A.75.75,0,0,1,.147,5.1L.22,5.012Z"
+      transform="translate(511.853 507.758)" fill="#fff" />
   </g>
 </svg>

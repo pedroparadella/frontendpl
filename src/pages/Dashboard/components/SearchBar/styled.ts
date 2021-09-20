@@ -49,14 +49,20 @@ export const SearchIcon = styled.div`
 
 export const ClearSearch = styled.div<ClearSearchProps>`
   font-size: 0.8rem;
-  right: 5rem;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   cursor: pointer;
   display: none;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  transition: 0.2s all ease-in-out;
+  opacity: 0;
+  pointer-events: none;
 
   ${props =>
     props.show &&
     css`
-      display: flex;
+      opacity: 1;
+      pointer-events: all;
     `}
 `;
