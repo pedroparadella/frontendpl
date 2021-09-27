@@ -1,0 +1,41 @@
+.appContent {
+    background-color: #f6f4f6;
+}
+.list {
+    margin: 0 15%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.listItem {
+    padding: 30px;
+}
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 15%;
+    padding: 30px;
+}
+.title {
+    color: #5f1478;
+    font-size: 35px;
+}
+.newCardContainer {
+    border: 1px solid;
+    text-align: center;
+    width: 173px;
+    height: 48px;
+    background: #e76316;
+    border-radius: 8px;
+    border-color: #e76316;
+    cursor: pointer;
+}
+.newCard {
+    position: relative;
+    top: 25%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
