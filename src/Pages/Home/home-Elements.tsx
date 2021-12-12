@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HomeBackground = styled.section`
     background:#f5f5f5;
-    min-height:90vh;
+    min-height:100vh;
 `
 
 export const HomeFunctionsSection = styled.div`
@@ -10,16 +10,16 @@ export const HomeFunctionsSection = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:72vw;
-    padding:5vh 0;
-    @media only screen and (max-width: 1440px) {
-        width:1030px;
+    width:70vw;
+    padding:4vh 0;
+    @mediaonly screen and (max-width:1870px){
+        width:75vw;
+    }
+    @media(max-width:1440px){
+        width:1056px;
     }
     @media only screen and (max-width: 1080px) {
         width:90vw;
-    }
-    @media only screen and (max-width: 724px) {
-        padding:2vh 0;
     }
 `
 
@@ -28,9 +28,9 @@ export const HomeFunctionTitle = styled.h3`
     letter-spacing: var(--unnamed-character-spacing-0);
     color: var(---cor-primaria);
     text-align: left;
-    //font: normal normal normal 32px/40px Muli;
     letter-spacing: 0px;
     color: #5F1478;
+    opacity: 1;
     @media only screen and (max-width: 410px) {
         font-size:var(--unnamed-font-size-21);
     }
@@ -49,6 +49,9 @@ export const HomeFunctionNewCard = styled.button`
     padding:1vh 3vw;
     @media only screen and (max-width: 410px) {
         font-size:var(--unnamed-font-size-12);
+    }
+    &:hover{
+        cursor:pointer;
     }
 `
 

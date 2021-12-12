@@ -6,6 +6,7 @@ import editIMG from '../../assets/logos/Icon-edit.svg'
 import trashIMG from '../../assets/logos/Icon-trash.svg'
 
 import {GetImagePoken} from '../../Services/PokemonService'
+import { ShowToast } from '../../Services/ToastService';
 
 export function Card(props:any) {
 
@@ -16,6 +17,10 @@ export function Card(props:any) {
             GetImagePoken(props.secondaryJson)
                 .then((res)=>SetPokeImg(res))
     }, [props])
+
+    function notImplementedException(){
+        ShowToast("Função não implementada.");
+    }
 
     return (
         <CardContainer>
@@ -32,11 +37,11 @@ export function Card(props:any) {
             <CardButtonsContainer>
                 <CardButton>
                     <ButtonImg src={trashIMG}/>
-                    <ButtonFunction>Excluir</ButtonFunction>
+                    <ButtonFunction onClick={notImplementedException}>Excluir</ButtonFunction>
                 </CardButton>
                 <CardButton>
                     <ButtonImg src={editIMG}/>
-                    <ButtonFunction>Editar</ButtonFunction>
+                    <ButtonFunction onClick={notImplementedException}>Editar</ButtonFunction>
                 </CardButton>
             </CardButtonsContainer>
         </CardContainer>

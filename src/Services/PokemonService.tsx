@@ -1,6 +1,5 @@
 import {PokemonClient} from 'pokenode-ts';
 
-
 export function GetListPokemon(initialIndex:number,quant:number):Promise<any>
 {
     const client = new PokemonClient();
@@ -34,6 +33,19 @@ export function GetImagePoken(urlJson:string):Promise<string>
         })
     })
   
+}
+
+export function GetPokemonByName(name:string){
+    const client = new PokemonClient();
+
+    return new Promise((resolve,reject)=>{
+        client.getPokemonByName(name)
+            .then((res)=> resolve(res))
+            .catch((e)=>{
+                reject(e.message);
+            })
+    })
+    
 }
 
 export class EntityPokemon{

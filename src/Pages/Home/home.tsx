@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useLayoutEffect} from 'react'
 import Card from '../../Components/Card'
 import Header from '../../Components/Header'
 import Searchbar from '../../Components/SearchBar'
@@ -13,73 +13,67 @@ import {
     HomePaginationItem
 } from './home-Elements'
 
-import {EntityPokemon, GetListPokemon} from '../../Services/PokemonService'
+import { ShowToast } from '../../Services/ToastService';
+
+import {useDispatch,useSelector} from 'react-redux';
+import {PokeThunk} from '../../Thunks/PokeThunks';
 
 export function Home() {
 
-    const [PokemonList,SetPokemonList] = useState(new Array<EntityPokemon>());
-    const [PaginationInteractor,SetPaginationInteractor] = useState(new Array<number>())
-    const [ActualPage,SetActualPage] = useState(0);
-    const [PaginationLimit,SetPaginationLimit] = useState(0);
+    const [PaginationInteractor,SetPaginationInteractor] = useState({actual:0,more_options:new Array<number>()})
 
-    useEffect(()=>{
-       SetActualPage(0);
-       SetPaginationInteractor(PaginatioArrayContent(0))
+    const PokeEntity:any = useSelector((state:any) => state.pokemon);
+    
+    const dispatch = useDispatch();
+
+    useLayoutEffect(()=>{
+        ChangePage(PaginationInteractor.actual);
     },[])
 
     useEffect(()=>{
-    },[PokemonList])
+        if(PokeEntity.pokemon_last_page==-1)
+            SetPaginationInteractor({...PaginationInteractor,more_options:BuildPageOptions(-1)})
+        else if(PaginationInteractor.more_options.length==0)
+        SetPaginationInteractor({...PaginationInteractor,more_options:BuildPageOptions(1)})
+    },[PokeEntity])
 
-    useEffect(()=>{
 
-        SetPaginationInteractor(PaginatioArrayContent(ActualPage));
+    function ChangeListPokemon(pageNumber:number):void{
+        let initialValue = pageNumber === 0? 1:(30*pageNumber);
 
-        let initialValue = ActualPage === 0? 1:(30*ActualPage);
+        dispatch(PokeThunk.NewListPoke(initialValue));
 
-        GetListPokemon(initialValue,30)
-        .then((res)=>{
-
-            if(PaginationLimit!==Math.floor(res.count/30))
-                SetPaginationLimit(Math.floor(res.count/30));
-
-            let array = new Array<EntityPokemon>();
-
-            for(let i=0;i<res.results.length;i++){
-                let objetTMP = new EntityPokemon();
-                objetTMP.SetName(res.results[i].name);
-                objetTMP.SetUrl(res.results[i].url);
-                array.push(objetTMP)
-            }
-
-            SetPokemonList(array);
-        });
-    },[ActualPage])
-
-    function PaginatioArrayContent(pageNumber:number):Array<number>{
-        
-        let array:Array<number> = new Array<number>();
-
-        if(pageNumber<=0 && (pageNumber !== PaginationLimit || pageNumber===0))
-            array = BuildArrayPagination(2);
-        else if(pageNumber === PaginationLimit){
-            array = BuildArrayPagination(pageNumber-5);
-        }
-        else if(pageNumber + 5 > PaginationLimit)
-            array = BuildArrayPagination(pageNumber+(PaginationLimit-(pageNumber+5)));
-        else if(pageNumber-2>3)
-            array = BuildArrayPagination(pageNumber-2);
-        else{
-            array = BuildArrayPagination(pageNumber+2 - pageNumber);
-        }
-        return array;
+        return;
     }
 
-    function BuildArrayPagination(indexInitial:number):Array<number>{
-        let Pagination = new Array<number>();
-        for(let i=indexInitial;i!==indexInitial+5;i++){
-            Pagination.push(i);
+    function ChangePage(page_tmp:number){
+        let paginationOptions_temp = BuildPageOptions(page_tmp);
+        SetPaginationInteractor({...PaginationInteractor,actual:page_tmp,more_options:paginationOptions_temp});
+        ChangeListPokemon(page_tmp);
+    }
+
+    function BuildPageOptions(page_tmp:number):Array<number>{
+        
+        if(page_tmp==-1){
+            return new Array<number>();
         }
-        return Pagination
+            
+            
+        
+        if(page_tmp-1<=0)
+            return new Array<number>(2,3,4);
+        else if(page_tmp+1>PokeEntity.pokemon_last_page){
+            let array_tmp = new Array<number>();
+            for(let i=PokeEntity.pokemon_last_page-3;i<PokeEntity.pokemon_last_page;i++)
+                array_tmp.push(i)
+            return array_tmp;
+        }
+        else{
+            let array_tmp = new Array<number>();
+            for(let i=page_tmp-1;i<=page_tmp+1;i++)
+                array_tmp.push(i)
+            return array_tmp;
+        }
     }
 
     return (
@@ -89,10 +83,10 @@ export function Home() {
                 <Searchbar/>
                 <HomeFunctionsSection>
                     <HomeFunctionTitle>Resultado de busca</HomeFunctionTitle>
-                    <HomeFunctionNewCard>Novo Card</HomeFunctionNewCard>
+                    <HomeFunctionNewCard onClick={(event)=> ShowToast('Função não implementada.')}>Novo Card</HomeFunctionNewCard>
                 </HomeFunctionsSection>
                 <HomeCardSection>
-                    {PokemonList.map((object,index)=>{
+                    {PokeEntity.pokemon_list.map((object:any,index:number)=>{
                         return(
                             <HomeCardHolder key={index}>
                                 <Card title={object?.name} secondaryJson={object?.url}/>
@@ -101,13 +95,15 @@ export function Home() {
                     })}
                 </HomeCardSection>
                 <HomePaginationContainer>
-                    {ActualPage<= 2 ? <HomePaginationItem disabled style={{width:'60px'}} onClick={((event)=> SetActualPage(0))}>Primeira</HomePaginationItem>:<HomePaginationItem style={{width:'60px'}} onClick={((event)=> SetActualPage(0))}>Primeira</HomePaginationItem>}
-                    {PaginationInteractor.map((item,index)=>{
+                {PaginationInteractor.actual<= 2 ? <HomePaginationItem disabled style={{width:'60px'}} onClick={((event)=> ChangePage(0))}>Primeira</HomePaginationItem>:<HomePaginationItem style={{width:'60px'}} onClick={((event)=> ChangePage(0))}>Primeira</HomePaginationItem>}
+                {
+                    PaginationInteractor.more_options.map((number,index)=>{
                         return(
-                            <HomePaginationItem key={index} onClick={((event)=> SetActualPage(item))}>{item}</HomePaginationItem>
+                            <HomePaginationItem onClick={((event)=> ChangePage(number))} key={index}>{number}</HomePaginationItem>
                         )
-                    })}
-                    {PaginationLimit<= 0 ? <HomePaginationItem disabled style={{width:'60px'}} onClick={((event)=> SetActualPage(PaginationLimit))}>última</HomePaginationItem>:<HomePaginationItem style={{width:'60px'}} onClick={((event)=> SetActualPage(PaginationLimit))}>Ultima</HomePaginationItem>}
+                    })
+                }
+                {PokeEntity.pokemon_last_page<= 0 ? <HomePaginationItem disabled style={{width:'60px'}} onClick={((event)=> ChangePage(PokeEntity.pokemon_last_page))}>última</HomePaginationItem>:<HomePaginationItem style={{width:'60px'}} onClick={((event)=> ChangePage(PokeEntity.pokemon_last_page))}>Ultima</HomePaginationItem>}
                 </HomePaginationContainer>
             </HomeBackground>
         </>

@@ -4,7 +4,7 @@ import FullBackGroundImage from '../../assets/Images/fundo-busca.png'
 import BackGroundImage from '../../assets/Images/fundo-busca.png'
 
 export const SearchBarBackground = styled.section`
-    width:100vw;
+    width:100%;
     min-height:261px;
     display:flex;
     align-items:center;
@@ -19,7 +19,7 @@ export const SearchBarBackground = styled.section`
 `
 
 export const SearchBarContainerInput = styled.div`
-    background: var(---cor-branco) 0% 0% no-repeat padding-box;
+    background: var(--cor-branco) 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 8px;
     width: 60%;
@@ -41,7 +41,6 @@ export const SearchBarInput = styled.input`
     font: var(--unnamed-font-style-normal) normal 300 var(--unnamed-font-size-24)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-muli);
     letter-spacing: var(--unnamed-character-spacing-0);
     text-align: left;
-    font: normal normal 300 24px/30px Muli;
     letter-spacing: 0px;
     color: #757575;
     @media only screen and (max-width: 490px) {
