@@ -1,0 +1,116 @@
+.popup_del {
+    position: fixed;
+    width: 438px;
+    height: 459px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    padding: 15px;
+    transition: all .2s ease;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.popup_del .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-color: #ffffff;
+    padding: 10px 17px;
+}
+
+.popup_del .close {
+    position: absolute;
+    top: -10px;
+    right: -7px;
+    width: 34px;
+    height: 34px;
+    background: var(--color-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.popup_del .box_icon_popup {
+    width: 159px;
+    height: 160px;
+    background: #DB25250F;
+    border: 6px solid #E4E4E4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_del .box_icon_popup i{
+    font-size: 68px;
+    color: #FF0000;
+}
+
+.popup_del h2{
+    margin-top: 25px;
+    font-size: 32px;
+    color: #FF0000;
+}
+
+.popup_del p{
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #454545;
+}
+.popup_del .container_bts{
+    border-top: 1px solid #F0EFF0;
+    padding: 12px 0;
+    margin: 31px 0 0;
+}
+.popup_del .btn_pooup{
+    box-shadow: 0 0 7px rgb(0 0 0 / 11%);
+    width: 154px;
+    height: 48px;
+    margin: 5px 7px 5px 7px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popup_del .btn_pooup:first-child{
+    background: #DB2525;
+    color: #ffffff;
+}
+.popup_del .btn_pooup:last-child{
+    background: #ffffff;
+    color: #DB2525;
+    border: 1px solid #DB2525;
+}
+.popup_del .warning {
+    text-align: center;
+    font-size: 16px;
+    color: var(--color-orange);
+}
+
+@media only screen and (max-width: 650px) {
+    .popup_del {
+        position: fixed;
+        width: 300px;
+    }
+    .popup_del .box_icon_popup {
+        width: 100px;
+        height: 100px;
+    }
+    .popup_del h2 {
+        margin-top: 18px;
+        font-size: 22px;
+    }
+    .popup_del .container_bts {
+        display: flex;
+        flex-flow: column;
+    }
+}
