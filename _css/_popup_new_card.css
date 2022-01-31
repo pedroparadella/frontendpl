@@ -1,0 +1,123 @@
+.popup_new_card {
+    position: fixed;
+    width: 642px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    padding: 15px;
+    transition: all .2s ease;
+    overflow-y: auto;
+    background: #FFFFFF;
+}
+
+.popup_new_card .content {
+    padding-left: 35px;
+}
+
+.popup_new_card header {
+    display: flex;
+    align-items: center;
+    padding: 0 0 32px;
+    border-bottom: 1px solid #DDDDDD;
+    margin: 20px 0 50px;
+}
+
+.popup_new_card header span {
+    padding-left: 10px;
+    color: var(--color-purple);
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.popup_new_card .label_input {
+    margin-bottom: 54px;
+}
+
+.popup_new_card label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.popup_new_card .input {
+    height: 60px;
+    width: 100%;
+    padding: 10px 26px;
+    font-size: 22px;
+    line-height: 1.42857143;
+    color: #222222;
+    border: 1px solid #B9B9B9;
+    border-radius: 8px;
+}
+
+.popup_new_card .container_bt {
+    display: flex;
+    justify-content: end;
+    border-top: 1px solid #DDDDDD;
+    margin-top: 60px;
+    padding-top: 32px;
+}
+
+.popup_new_card .btn_inside_input {
+    position: relative;
+}
+
+.popup_new_card .btn_inside_input button {
+    position: absolute;
+    top: 34px;
+    right: 10px;
+    width: 224px;
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+    background: #FFFFFF;
+    box-shadow: 0 3px 6px #E763162E;
+}
+
+.popup_new_card .warning {
+    text-align: center;
+    font-size: 16px;
+    color: var(--color-orange);
+    margin-top: 22px;
+}
+
+@media only screen and (max-width: 650px) {
+    .popup_new_card {
+        width: 300px;
+    }
+
+    .popup_new_card .content {
+        padding-left: 15px;
+    }
+
+    .popup_new_card header {
+        padding: 0 0 10px;
+        margin: 10px;
+    }
+
+    .popup_new_card label {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    .popup_new_card .input {
+        height: 42px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .popup_new_card .btn_inside_input button {
+        top: 42px;
+        right: 7px;
+        height: 32px;
+        width: 85px;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .popup_new_card .container_bt {
+        justify-content: center;
+        padding-top: 15px;
+    }
+}

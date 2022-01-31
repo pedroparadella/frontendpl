@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0;"/>
+    <title>Teste - Ímpar</title>
+    <!---->
+    <link rel="stylesheet" href="_css/_reset.css"/>
+    <link rel="stylesheet" href="_css/fonts/all.min.css"/>
+    <link rel="stylesheet" href="_css/_popup_weather.css"/>
+    <link rel="stylesheet" href="_css/_popup_new_card.css"/>
+    <link rel="stylesheet" href="_css/_popup_del_card.css"/>
+    <link rel="stylesheet" href="_css/_style.css"/>
+    <!---->
+    <script src="_js/_base.js"></script>
+    <script src="_js/_popups.js"></script>
+    <script src="_js/_weather.js"></script>
+    <!---->
+</head>
+<body>
+<header>
+    <div class="bar_top">
+        <img class="logo" src="_imgs/logo-teste.png">
+        <div id="weather" class="weather"><i class="fas fa-cloud-sun"></i></div>
+    </div>
+    <div class="img_top">
+        <div class="search">
+            <input type="text" id="input_search" class="search_input" placeholder="Digite aqui sua busca...">
+            <button id="btn_search"><img src="_imgs/lupa.png"></button>
+        </div>
+    </div>
+</header>
+<main id="main">
+    <div class="result_search">
+        <h2>Resultado de busca</h2>
+        <button id="btn_new_card" class="btn btn_new_card">Novo Card</button>
+    </div>
+    <section id="container_card" class="cards"></section>
+    <div class="result_search">
+        <h2 id="total_load_card">0</h2>
+        <button id="btn_load_card" class="btn btn_load_card">Carregar Mais</button>
+    </div>
+</main>
+<!---->
+<script src="_js/_app.js"></script>
+<!---->
+</body>
+</html>

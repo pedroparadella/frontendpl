@@ -1,0 +1,237 @@
+.bar_top {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+    background: linear-gradient(90deg, var(--color-purple) 0%, var(--color-light_purple) 100%);
+    align-content: center;
+}
+
+.bar_top .logo {
+    margin: 14px 24px;
+}
+
+.bar_top .weather i {
+    font-size: 26px;
+    color: #FFFFFF;
+    padding: 15px;
+    cursor: pointer;
+}
+
+header .img_top {
+    display: flex;
+    justify-content: center;
+    height: 261px;
+    background-image: url(../_imgs/fundo-busca.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.search {
+    display: flex;
+    max-width: 1046px;
+    width: 70%;
+    height: 75px;
+    background: #FFF;
+    border-radius: 7px;
+    margin-top: 135px;
+}
+
+.search button {
+    background: none;
+    cursor: pointer;
+}
+
+.search_input {
+    height: 48px;
+    margin: 14px 10px;
+    width: 90%;
+    padding: 2px 12px;
+    font-size: 22px;
+    line-height: 1.42857143;
+    color: #222222;
+}
+
+main {
+    width: 70%;
+    max-width: 1046px;
+    margin: 0 auto;
+}
+
+.result_search {
+    display: flex;
+    margin: 30px auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result_search h2 {
+    color: var(--color-purple);
+}
+
+.btn {
+    width: 173px;
+    height: 48px;
+    border-radius: 5px;
+    border: solid 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn_new_card {
+    background: var(--color-orange);
+}
+
+.btn_load_card {
+    background: var(--color-purple);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 15px;
+    max-width: 1046px;
+    margin: 0;
+}
+
+.box_item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 234px;
+    height: 267px;
+    margin: 10px;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 6px #e5e5e5;
+    border: 1px solid #E4E4E4;
+    border-radius: 8px;
+}
+
+.box_img_card {
+    width: 95px;
+    height: 95px;
+    background: #F6F4F6;
+    border-radius: 50%;
+    border: 1px solid #E4E4E4;
+}
+
+.line {
+    display: inline-block;
+    width: 169px;
+    border-bottom: 1px solid #F0EFF0;
+    margin-top: 22px;
+}
+
+.text_box_item {
+    width: 191px;
+    color: #263238;
+    font-size: 16px;
+    font-style: normal;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+}
+
+.text_box_item:first-letter {
+    text-transform: capitalize;
+}
+
+.box_item_bts {
+    width: 234px;
+    position: absolute;
+    padding: 10px;
+    box-shadow: inset 0 3px 6px #0000000f;
+    bottom: 0;
+}
+
+.btn_box_card {
+    width: auto;
+    padding: 4px 16px;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+.btn_box_card img {
+    margin: -2px 8px;
+}
+
+.btn_box_card:hover {
+    color: var(--color-orange);
+}
+
+.btn_box_card:first-child {
+    border-right: 1px solid #DDDDDD;
+}
+
+.layer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .77);
+    z-index: 2;
+}
+
+@media only screen and (max-width: 540px) {
+
+    .search {
+        height: 64px;
+    }
+
+    .search_input {
+        height: 48px;
+        margin: 14px 10px;
+        width: 80%;
+        padding: 2px 12px;
+        font-size: 22px;
+        line-height: 1.42857143;
+        color: #222222;
+    }
+
+    .search_input {
+        height: 31px;
+        margin: 18px 4px;
+        font-size: 16px;
+    }
+
+    .cards {
+        grid-template-columns: 235px;
+    }
+
+    .result_search {
+        flex-direction: column-reverse;
+    }
+
+    .result_search h2 {
+        font-size: 18px;
+        margin: 22px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

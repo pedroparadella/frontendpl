@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Mulish:wght@400;800&display=swap');
+
+:root {
+    --color-purple: #5F1478;
+    --color-light_purple: #AE276F;
+    --color-orange: #E76316;
+    --color-display-error: #CC3300;
+}
+* {
+    border: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    background: #F6F4F6;
+}
+
+section {
+    padding: 0;
+}
