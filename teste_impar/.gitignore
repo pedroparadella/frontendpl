@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-src/services/config
+src/services/config/
