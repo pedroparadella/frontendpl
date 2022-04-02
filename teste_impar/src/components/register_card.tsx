@@ -15,7 +15,7 @@ export function RegisterCard({ open, onClose }: RegisterCardProps) {
         <Drawer
             anchor='right'
             open={open}
-            onClose={() => { onClose(false); console.log("Fechou o drawer") }}
+            onClose={() => { onClose(false); }}
             className='register_card'
         >
             <Box style={{ width: 700 }}>
@@ -107,7 +107,6 @@ export function RegisterCard({ open, onClose }: RegisterCardProps) {
                             }}
                             onClick={() => {
                                 onClose(false);
-                                console.log("Fechou o drawer clicando no botao de criar novo card");
                             }}
                         >
                             Criar card

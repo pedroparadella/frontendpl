@@ -88,7 +88,6 @@ export function DeleteCard({ id, deletedPokemons, setDeletedPokemons, show, setS
                             backgroundColor: '#DB2525',
                         }}
                         onClick={() => {
-                            console.log("Clicou aqui (id): ", id);
                             setDeletedPokemons([...deletedPokemons, id]);
                             setShowDeleteCard(false);
                         }}

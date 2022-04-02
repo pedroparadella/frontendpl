@@ -1,28 +1,28 @@
-# Avaliação Pleno
-Olá desenvolvedor!\
-Tudo bem?! 😊\
-\
-Seja bem-vindo, o intuito do teste não é reprovar e sim conhecer seu melhor estilo de programar e resolver problemas.
+# Instruções
+Segue as instruções para fazer o projeto funcionar em outras máquinas.
 
-## O que fazer
-1. Fazer um fork desse repositório e trabalhar no seu ambiente.
-2. Replicar o layout do link abaixo:\
-[Link para o layout](https://xd.adobe.com/view/c715f110-fbd4-4323-be0c-0e453c1450db-9246)
-2. Utilizar a [PokeAPI](https://pokeapi.co/) para trazer os itens e renderizar nos cards da melhor forma possível. Você pode escolher quais informações e imagens vão aparecer no card.
-3. Implementar a funcionalidade de busca na melhor forma possível.
-4. Implementar a funcionalidade de paginação(carregar mais) dos cards na melhor forma possível.
-5. Os cliques nos botões de editar/excluir/novo card podem exibir uma mensagem pro usuário de que a funcionalidade não foi implementada.
-6. Ao finalizar a avaliação modifique esse README com as instruções de como podemos fazer o seu código rodar na nossa máquina. Ou seja, passo a passo do que instalar e de quais comandos rodar para podermos visualizar o seu trabalho!
-7. Realizar um Pull Request para o nosso repositório e mandar um e-mail para pedro.paradella@impar.com.br com o assunto "Avaliação Pleno", informando que finalizou a avaliação e colocando o link do Pull Request. 
+### OBS: 
+1. O projeto foi desenvolvido no windows 11.
+2. Foi utilizado ReactJs com TypeScript.
+3. O projeto foi criado com Vite (Uma opção ao create-react-app).
+4. Alguns passos serão descritos utilizando o yarn, mas poderão também serem feitos com o npm, mudando um pouco a sintaxe.
 
-## Dicas
-* Não foi definido limite de linhas e colunas, portanto fique à vontade para tal escolha.
-* Gostamos de interfaces limpas e elegantes.
+## Pré-requisitos
+1. Ter o node instalado 
 
-## Quais tecnologias usar
-* Deixaremos a seu critério qual tecnologia utilizar no entanto você terá mais pontos conosco se utilizar React para criação da interface e também o uso de pré-processadores/styled-components para o CSS.
+## Passos
+1. Instalação do yarn: npm install --global yarn
+    1.1 Verificar se o yarn foi instalado: yarn --version
+2. Clonar o projeto para a máquina desejada.
+3. Acessar a pasta referente ao projeto, com o terminal, nesse caso: 'teste_impar'
+4. Instalar as dependências do projeto: yarn install
+5. Após instalar as dependências, executar o projeto com o comando: yarn run dev
 
-## Desafios se você se sentir confiante
-* Colocar em algum lugar do site uma integração com o clima tempo. Deixaremos a seu critério de onde colocar e quais funcionalidades terá.
-* Precisa ser criada uma conta free para o consumo da API clima tempo.
-* [Link da API clima tempo](https://advisor.climatempo.com.br/)
+## Features
+1. Pesquisa de um só Pokemon: Digitar seu nome na barra de busca e clicar na lupa
+2. Pesquisa pelos 150 primeiros Pokemons: Ao iniciar o sistema, uma busca pelos 150 primeiros pokemons é feita
+    2.1 Um bug está ocorrendo e a UI não está atualizando como deveria, a UI apenas atualiza quando ocorre alguma interação. Para isso, digite qualquer caracter na barra de busca, não é necessário clicar na lupa, e os Pokemons anteriormente pesquisados são exibidos na tela.
+3. Paginação dos pokemons pesquisados.
+4. Exclusão dos pokemons. Ao clicar para excluir algum Pokemon, um modal aparece na tela perguntando se há mesmo a intenção de excluir, e em caso positivo, o Pokemon é excluido. Como a lista de Pokemons excluídos é um state, basta recarregar a tela para desfazer a ação.
+5. Drawer com os campos conforme protótipo.
+6. Tentativa de conexão com a API do ClimaTempo. Não obtive sucesso, pois houve um erro na política de CORS (Apesar de que no dashboard do ClimaTempo eu desabilitei o CORS)

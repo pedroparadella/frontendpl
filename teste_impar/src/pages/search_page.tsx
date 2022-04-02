@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Typography } from "@mui/material";
+import { getPokemonList } from "../services/PokeApi";
 import { Header } from "../components/header";
 import { SearchBar } from "../components/search_bar";
 import { DeleteCard } from "../components/delete_card";
@@ -10,7 +11,7 @@ import { IPokemon } from '../models/pokemon';
 export function SearchPage() {
     const [open, setOpen] = useState<boolean>(false);
     const [search, setSearch] = useState<string>("");
-    const [pokemonList, setPokemonList] = useState<IPokemon[]>([]);
+    const [pokemonList, setPokemonList] = useState<IPokemon[]>([] as IPokemon[]);
     const [deletedPokemons, setDeletedPokemons] = useState<number[]>([]);
     const [showDeleteCard, setShowDeleteCard] = useState<boolean>(false);
     const [deletedId, setDeletedId] = useState<number>(0);
@@ -22,8 +23,9 @@ export function SearchPage() {
     const currentPokemonList = pokemonList.slice(startIndex, endIndex);
 
     useEffect(() => {
-        console.log('Lista de Pokemons: ', pokemonList);
-    }, [pokemonList]);
+        getPokemonList(setPokemonList);
+        console.log("Lista de pokemons: ", pokemonList);
+    }, []);
 
     return (
         <div
@@ -74,68 +76,74 @@ export function SearchPage() {
                 />
             </div>
             <RegisterCard open={open} onClose={setOpen} />
-            <div
-                style={{
-                    position: 'relative',
-                    borderRadius: '5px',
-                    padding: '1%',
-                    margin: '1%',
-                    textAlign: 'center',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    overflowY: 'scroll',
-                    maxHeight: '70vh',
-                }}
-            >
-                {pokemonList.length > 0 ?
-                    (currentPokemonList.map((pokemon, index) => {
-                        if (!deletedPokemons.includes(pokemon.id)) {
-                            return (
-                                <SearchResultCard
-                                    pokemonData={pokemon}
-                                    key={index}
-                                    setShowDeleteCard={setShowDeleteCard}
-                                    setDeletedId={setDeletedId}
-                                />
-                            );
-                        }
-                    })) : <div />}
-            </div>
-            <div
-                style={{
-                    backgroundColor: '#edd1c1',
-                    opacity: 0.8,
-                    textAlign: 'center',
-                    height: 100,
-                    borderRadius: '5px',
-                    verticalAlign: 'baseline',
-                }}
-            >
-                <div
+
+            {pokemonList.length > 0 ?
+                (<div
                     style={{
-                        top: '40%',
                         position: 'relative',
+                        borderRadius: '5px',
+                        padding: '1%',
+                        margin: '1%',
+                        textAlign: 'center',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        overflowY: 'scroll',
+                        maxHeight: '70vh',
                     }}
                 >
-                    {Array.from(Array(pages), (item, index) => {
-                        return <button
-                            key={index}
-                            value={index}
-                            onClick={(e: React.MouseEvent<HTMLButtonElement>) => setCurrentPage(Number(e.currentTarget.value))}
-                            style={{
-                                backgroundColor: currentPage === index ? '#E76316' : '#f3c1a5',
-                                borderRadius: '5px',
-                                margin: '0 5px',
-                                fontWeight: 'bold',
-                                width: 70,
-                                height: 40,
-                            }}
-                        >
-                            {index}
-                        </button>
-                    })}
-                </div>
-            </div>
+                    {
+                        (
+                            currentPokemonList.map((pokemon, index) => {
+                                if (!deletedPokemons.includes(pokemon.id)) {
+                                    return (
+                                        <SearchResultCard
+                                            pokemonData={pokemon}
+                                            key={index}
+                                            setShowDeleteCard={setShowDeleteCard}
+                                            setDeletedId={setDeletedId}
+                                        />
+                                    );
+                                }
+                            })
+                        )
+                    }
+                </div>) : <div />}
+            {pokemonList.length > 0 ?
+                (<div
+                    style={{
+                        backgroundColor: '#edd1c1',
+                        opacity: 0.8,
+                        textAlign: 'center',
+                        height: 100,
+                        borderRadius: '5px',
+                        verticalAlign: 'baseline',
+                    }}
+                >
+                    <div
+                        style={{
+                            top: '40%',
+                            position: 'relative',
+                        }}
+                    >
+                        {Array.from(Array(pages), (item, index) => {
+                            return <button
+                                key={index}
+                                value={index}
+                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => setCurrentPage(Number(e.currentTarget.value))}
+                                style={{
+                                    backgroundColor: currentPage === index ? '#E76316' : '#f3c1a5',
+                                    borderRadius: '5px',
+                                    margin: '0 5px',
+                                    fontWeight: 'bold',
+                                    width: 70,
+                                    height: 40,
+                                }}
+                            >
+                                {index}
+                            </button>
+                        })}
+                    </div>
+                </div>) : <div />}
         </div>
     );
 }
