@@ -18,8 +18,8 @@ export const theme = extendTheme({
     }
   },
   fonts: {
-    heading: 'Mulish',
-    body: 'Mulish'
+    heading: 'Muli',
+    body: 'Muli'
   },
   styles: {
     global: {
