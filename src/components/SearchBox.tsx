@@ -5,9 +5,9 @@ export default function SearchBox() {
   return (
     <Flex
       as="label"
-      py='5'
+      py={['2','5']}
       px='7'
-      w='6xl'
+      w={['sm', 'xl', '820px', '6xl']}
       alignSelf='center'
       bg='white'
       borderRadius='md'
@@ -16,13 +16,13 @@ export default function SearchBox() {
       <Input
         color='gray.900'
         variant='unstyled'
-        fontSize='xl'
+        fontSize={[ 'sm', 'md', 'lg', 'xl']}
         px='4'
         mr='4'
         placeholder='Digite aqui sua busca...'
         _placeholder={{color: 'gray.600'}}
       />
-      <Icon as={RiSearchLine} color='gray.600' fontSize={'3xl'} />
+      <Icon as={RiSearchLine} color='gray.600' fontSize={['xl', '3xl']} />
     </Flex>
   );
 }
