@@ -3,18 +3,11 @@ import {
   Button,
   Container,
   Divider,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
   Flex,
   Icon,
   Image,
   SimpleGrid,
   Text,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 
 import SearchBox from '../components/SearchBox';
@@ -32,7 +25,7 @@ export default function Home() {
 
   const baseUrl = 'https://pokeapi.co/api/v2/';
   const [pokemons, setPokemons] = useState<PokemonType[]>([]);
-  const [loadMore, setLoadMore] = useState(`${baseUrl}pokemon?limit=12`);
+  const [loadMore, setLoadMore] = useState(`${baseUrl}pokemon?limit=8`);
 
   const getPokemons = async () => {
     const response = await fetch(loadMore);
@@ -87,7 +80,7 @@ export default function Home() {
               Novo Card
             </Button>
           </Flex>
-          <SimpleGrid columns={[1, 2, 3, 4]} justifyItems='center' spacing='9'>
+          <SimpleGrid columns={[1, 2, 4]} justifyItems='center' spacing='9'>
             {pokemons.map(pokemon => (
               <Flex
                 direction='column'
@@ -154,6 +147,11 @@ export default function Home() {
               </Flex>
             ))}
           </SimpleGrid>
+          <Flex justify='center' my='10'>
+            <Button colorScheme='orange' onClick={getPokemons}>
+              Carregar Mais
+            </Button>
+          </Flex>
         </Container>
       </Box>
     </>
