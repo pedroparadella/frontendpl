@@ -5,11 +5,15 @@ import { theme } from '../styles/theme';
 
 import Header from '../components/Header';
 
+import { DrawerFormProvider } from '../contexts/DrawerFormContext';
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Header />
-      <Component {...pageProps} />
+      <DrawerFormProvider>
+        <Header />
+        <Component {...pageProps} />
+      </DrawerFormProvider>
     </ChakraProvider>
   );
 }

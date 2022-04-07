@@ -3,11 +3,18 @@ import {
   Button,
   Container,
   Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Flex,
   Icon,
   Image,
   SimpleGrid,
   Text,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
 import SearchBox from '../components/SearchBox';
@@ -17,8 +24,12 @@ import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
 import { useEffect, useState } from 'react';
 
 import { PokemonType } from '../types/pokemon.type';
+import { useDrawerForm } from '../contexts/DrawerFormContext';
+import DrawerForm from '../components/DrawerForm';
 
 export default function Home() {
+  const { onOpen } = useDrawerForm();
+
   const baseUrl = 'https://pokeapi.co/api/v2/';
   const [pokemons, setPokemons] = useState<PokemonType[]>([]);
   const [loadMore, setLoadMore] = useState(`${baseUrl}pokemon?limit=12`);
@@ -46,6 +57,8 @@ export default function Home() {
 
   return (
     <>
+      <DrawerForm />
+
       <Box as='main'>
         <Flex justifyContent='center'>
           <SearchBox />
@@ -68,6 +81,8 @@ export default function Home() {
               size='lg'
               fontSize='lg'
               shadow='md'
+              onClick={onOpen}
+              aria-label='Open drawer form'
             >
               Novo Card
             </Button>
@@ -125,7 +140,7 @@ export default function Home() {
                     h='22px'
                     borderColor='gray.300'
                   />
-                  <Button bgColor='transparent' color='gray.600'>
+                  <Button bgColor='transparent' color='gray.600' onClick={onOpen}>
                     <Icon
                       as={RiPencilLine}
                       color='orange.500'
