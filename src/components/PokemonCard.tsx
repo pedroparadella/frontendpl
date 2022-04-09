@@ -2,11 +2,13 @@ import { Button, Divider, Flex, Icon, Image, Text } from '@chakra-ui/react';
 
 import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
 import { useDrawerForm } from '../contexts/DrawerFormContext';
+import { useModalDelete } from '../contexts/ModalDeleteContext';
 
 import { PokemonType } from '../types/pokemon.type';
 
 export function PokemonCard({ name, sprites }: any) {
-  const { onOpen } = useDrawerForm();
+  const onOpenDrawerForm = useDrawerForm().onOpen;
+  const onOpenModalDelete = useModalDelete().onOpen;
 
   return (
     <Flex
@@ -43,7 +45,7 @@ export function PokemonCard({ name, sprites }: any) {
         {name}
       </Text>
       <Flex bg='gray.200' borderBottomRadius='md' marginTop='auto'>
-        <Button bgColor='transparent' color='gray.600'>
+        <Button bgColor='transparent' color='gray.600' onClick={onOpenModalDelete}>
           <Icon
             as={RiDeleteBinLine}
             color='red.500'
@@ -59,7 +61,7 @@ export function PokemonCard({ name, sprites }: any) {
           h='22px'
           borderColor='gray.300'
         />
-        <Button bgColor='transparent' color='gray.600' onClick={onOpen}>
+        <Button bgColor='transparent' color='gray.600' onClick={onOpenDrawerForm}>
           <Icon
             as={RiPencilLine}
             color='orange.500'

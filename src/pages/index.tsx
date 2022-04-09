@@ -18,6 +18,7 @@ import { PokemonType } from '../types/pokemon.type';
 
 import { useDrawerForm } from '../contexts/DrawerFormContext';
 import DrawerForm from '../components/DrawerForm';
+import ModalDelete from '../components/ModalDelete';
 
 
 export default function Home() {
@@ -57,6 +58,7 @@ export default function Home() {
   return (
     <>
       <DrawerForm />
+      <ModalDelete />
 
       <Box as='main'>
         <Flex justifyContent='center'>
