@@ -18,7 +18,8 @@ import { PokemonType } from '../types/pokemon.type';
 
 import { useDrawerForm } from '../contexts/DrawerFormContext';
 import DrawerForm from '../components/DrawerForm';
-import ModalDelete from '../components/ModalDelete';
+import ModalDelete from '../components/Modals/ModalDelete';
+import { ModalClimaTempo } from '../components/Modals/ModalClimaTempo';
 
 
 export default function Home() {
@@ -59,6 +60,7 @@ export default function Home() {
     <>
       <DrawerForm />
       <ModalDelete />
+      <ModalClimaTempo />
 
       <Box as='main'>
         <Flex justifyContent='center'>

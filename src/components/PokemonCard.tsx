@@ -2,7 +2,7 @@ import { Button, Divider, Flex, Icon, Image, Text } from '@chakra-ui/react';
 
 import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
 import { useDrawerForm } from '../contexts/DrawerFormContext';
-import { useModalDelete } from '../contexts/ModalDeleteContext';
+import { useModalDelete } from '../contexts/Modals/ModalDeleteContext';
 
 import { PokemonType } from '../types/pokemon.type';
 

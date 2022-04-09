@@ -4,7 +4,6 @@ import {
   Divider,
   Flex,
   Icon,
-  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -14,7 +13,7 @@ import {
 
 } from '@chakra-ui/react';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { useModalDelete } from '../contexts/ModalDeleteContext';
+import { useModalDelete } from '../../contexts/Modals/ModalDeleteContext';
 
 export default function ModalDelete() {
   const { isOpen, onClose } = useModalDelete();
