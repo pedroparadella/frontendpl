@@ -1,11 +1,24 @@
-import { Flex, Icon, Input } from '@chakra-ui/react';
+import { Button, Flex, Icon, Input } from '@chakra-ui/react';
 import { RiSearchLine } from 'react-icons/ri';
 
-export default function SearchBox() {
+import { useState } from 'react';
+
+export default function SearchBox(props: any) {
+  const { onSearch } = props;
+  const [search, setSearch] = useState('');
+
+  function onChangeHandler(e: any) {
+    setSearch(e.target.value);
+  }
+
+  function onClickHandler() {
+    onSearch(search);
+  }
+
   return (
     <Flex
       as="label"
-      py={['2','5']}
+      py={['2', '5']}
       px='7'
       w={['sm', 'xl', '820px', '6xl']}
       alignSelf='center'
@@ -16,13 +29,16 @@ export default function SearchBox() {
       <Input
         color='gray.900'
         variant='unstyled'
-        fontSize={[ 'sm', 'md', 'lg', 'xl']}
+        fontSize={['sm', 'md', 'lg', 'xl']}
         px='4'
         mr='4'
         placeholder='Digite aqui sua busca...'
-        _placeholder={{color: 'gray.600'}}
+        _placeholder={{ color: 'gray.600' }}
+        onChange={onChangeHandler}
       />
-      <Icon as={RiSearchLine} color='gray.600' fontSize={['xl', '3xl']} />
+      <Button colorScheme='whiteAlpha' onClick={onClickHandler}>
+        <Icon as={RiSearchLine} color='gray.600' fontSize={['xl', '3xl']} />
+      </Button>
     </Flex>
   );
 }
