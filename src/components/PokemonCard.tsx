@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Icon, Image, Text } from '@chakra-ui/react';
+import { Badge, Button, Divider, Flex, Icon, Image, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
@@ -7,7 +7,7 @@ import { useModalDelete } from '../contexts/Modals/ModalDeleteContext';
 
 import { PokemonType } from '../types/pokemon.type';
 
-export function PokemonCard({ name, sprite, shinySprite }: any) {
+export function PokemonCard({ name, sprite, shinySprite, type }: any) {
   const onOpenDrawerForm = useDrawerForm().onOpen;
   const onOpenModalDelete = useModalDelete().onOpen;
 
@@ -45,14 +45,17 @@ export function PokemonCard({ name, sprite, shinySprite }: any) {
         src={shiny == false ? sprite : shinySprite}
         borderRadius='full'
         bgColor='gray.200'
-        border='2px'
-        borderColor='gray.300'
+        border='1px'
+        borderColor={type}
         boxSize='95px'
         alt={name}
         alignSelf='center'
         p='2'
-        my='12'
+        my='8'
       />
+      <Flex justify='space-evenly' mb='4'>
+        <Badge color={type}>{type}</Badge>
+      </Flex>
       <Divider
         orientation='horizontal'
         alignSelf='center'
@@ -60,9 +63,7 @@ export function PokemonCard({ name, sprite, shinySprite }: any) {
         mb='10px'
         borderColor='gray.300'
       />
-      <Text textAlign='center'>
-        {name}
-      </Text>
+      <Text textAlign='center'>{name}</Text>
       <Flex bg='gray.200' borderBottomRadius='md' marginTop='auto'>
         <Button bgColor='transparent' color='gray.600' onClick={onOpenModalDelete}>
           <Icon
@@ -94,4 +95,3 @@ export function PokemonCard({ name, sprite, shinySprite }: any) {
     </Flex>
   );
 }
-

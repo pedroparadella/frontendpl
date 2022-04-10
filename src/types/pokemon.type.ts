@@ -1,10 +1,19 @@
 export interface PokemonType {
   id: number;
   name: string;
-  sprites: PokemonSpritesType
+  sprites: PokemonSprites;
+  types: PokemonTypes[];
 }
 
-interface PokemonSpritesType {
+interface PokemonSprites {
   front_default: string;
-  front_shiny: string
+  front_shiny: string;
+}
+
+interface PokemonTypes {
+  type: PokemonTypeName;
+}
+
+interface PokemonTypeName {
+  name: string;
 }

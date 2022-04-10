@@ -98,15 +98,18 @@ export default function Home() {
                   name={pokemon.name}
                   sprite={pokemon.sprites.front_default}
                   shinySprite={pokemon.sprites.front_shiny}
+                  type={pokemon.types[0].type.name}
                 />
               </div>
               :
               pokemons.map(pokemon => (
                 <div key={pokemon.id}>
                   <PokemonCard
+                    id={pokemon.id}
                     name={pokemon.name}
                     sprite={pokemon.sprites.front_default}
                     shinySprite={pokemon.sprites.front_shiny}
+                    type={pokemon.types[0].type.name}
                   />
                 </div>
               ))
