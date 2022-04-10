@@ -7,61 +7,19 @@ import {
   SimpleGrid,
   Text,
 } from '@chakra-ui/react';
-import { PokemonCard } from '../components/PokemonCard';
 
 import SearchBox from '../components/SearchBox';
-import { searchPokemon } from '../services/api';
-
-import { useEffect, useState } from 'react';
-
-import { PokemonType } from '../types/pokemon.type';
+import { PokemonCard } from '../components/PokemonCard';
 
 import { useDrawerForm } from '../contexts/DrawerFormContext';
-import DrawerForm from '../components/DrawerForm';
-import ModalDelete from '../components/Modals/ModalDelete';
-import { ModalClimaTempo } from '../components/Modals/ModalClimaTempo';
-
+import { usePokemons } from '../hooks/usePokemons';
 
 export default function Home() {
   const { onOpen } = useDrawerForm();
-
-  const baseUrl = 'https://pokeapi.co/api/v2/';
-  const [pokemons, setPokemons] = useState<PokemonType[]>([]);
-  const [pokemon, setPokemon] = useState<any>([]);
-  const [loadMore, setLoadMore] = useState(`${baseUrl}pokemon?limit=8`);
-
-  async function getPokemons() {
-    const response = await fetch(loadMore);
-    const data = await response.json();
-
-    setLoadMore(data.next);
-
-    function searchPokemon(result: PokemonType[]) {
-      result.forEach(async (pokemon: PokemonType) => {
-        const response = await fetch(`${baseUrl}pokemon/${pokemon.name}`);
-        const data = await response.json();
-
-        setPokemons(currentList => [...currentList, data]);
-      })
-    }
-    searchPokemon(data.results);
-  }
-
-  useEffect(() => {
-    getPokemons();
-  }, []);
-
-  async function onSearchHandler(name: string) {
-    const result = await searchPokemon(name);
-    setPokemon(result);
-  }
+  const { pokemons, pokemon, getPokemons, onSearchHandler } = usePokemons();
 
   return (
     <>
-      <DrawerForm />
-      <ModalDelete />
-      <ModalClimaTempo />
-
       <Box as='main'>
         <Flex justifyContent='center'>
           <SearchBox onSearch={onSearchHandler} />
@@ -105,7 +63,6 @@ export default function Home() {
               pokemons.map(pokemon => (
                 <div key={pokemon.id}>
                   <PokemonCard
-                    id={pokemon.id}
                     name={pokemon.name}
                     sprite={pokemon.sprites.front_default}
                     shinySprite={pokemon.sprites.front_shiny}
