@@ -3,7 +3,7 @@
 </h1>
 
 
-![Desafio](https://github.com/vonmalves/development-test/blob/master/.github/Desafio.gif)
+![Desafio](https://github.com/vonmalves/frontendpl/blob/main/.github/Desafio.gif)
 
 <br/>
 
