@@ -10,18 +10,14 @@ import {
   ModalContent,
   ModalOverlay,
   Text,
-
+  useToast,
 } from '@chakra-ui/react';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { useModalDelete } from '../../contexts/Modals/ModalDeleteContext';
 
 export default function ModalDelete() {
   const { isOpen, onClose } = useModalDelete();
-
-  function onClick() {
-    onClose(),
-    alert('Essa funcionalidade não foi implementada.')
-  }
+  const toast = useToast()
   return (
     <>
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
@@ -65,7 +61,15 @@ export default function ModalDelete() {
               h='48px'
               mr='17px'
               fontWeight='bold'
-              onClick={onClick}
+              onClick={() =>
+                toast({
+                  title: 'Funcionalidade não implementada.',
+                  description: 'Essa funcionalidade ainda não foi implementada.',
+                  status: 'error',
+                  duration: 5000,
+                  isClosable: true,
+                })
+              }
             >
               Excluir
             </Button>
