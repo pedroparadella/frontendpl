@@ -15,6 +15,12 @@ export default function SearchBox(props: any) {
     onSearch(search);
   }
 
+  function onKeyUpHandler(e: any) {
+    if (e.key == 'Enter') {
+      onClickHandler();
+    }
+  }
+
   return (
     <Flex
       as="label"
@@ -35,6 +41,7 @@ export default function SearchBox(props: any) {
         placeholder='Digite aqui sua busca...'
         _placeholder={{ color: 'gray.600' }}
         onChange={onChangeHandler}
+        onKeyUp={onKeyUpHandler}
       />
       <Button colorScheme='whiteAlpha' onClick={onClickHandler}>
         <Icon as={RiSearchLine} color='gray.600' fontSize={['xl', '3xl']} />
