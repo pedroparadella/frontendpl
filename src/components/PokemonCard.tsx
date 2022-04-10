@@ -1,7 +1,8 @@
-import { Badge, Button, Divider, Flex, Icon, Image, Text } from '@chakra-ui/react';
+import { InfoIcon } from '@chakra-ui/icons';
+import { Badge, Button, Divider, Flex, Icon, Image, Text, Tooltip } from '@chakra-ui/react';
 import { useState } from 'react';
 
-import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
+import { Ri24HoursFill, RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
 import { useDrawerForm } from '../contexts/DrawerFormContext';
 import { useModalDelete } from '../contexts/Modals/ModalDeleteContext';
 
@@ -39,11 +40,20 @@ export function PokemonCard({ name, sprite, shinySprite, type }: PokemonProps) {
           colorScheme={shiny == false ? 'purple' : 'orange'}
           size='xs'
           isActive
-          onClick={handleClick}
           variant='ghost'
           pos='absolute'
+          onClick={handleClick}
         >
           Shiny
+          <Tooltip
+            placement='top-end'
+            bg='gray.300'
+            color='black'
+            fontWeight='bold'
+            label={`Clique aqui para mostrar a versão shiny do ${name}.`}
+          >
+            <InfoIcon ml='1' fontSize='sm' mb='0.5' />
+          </Tooltip>
         </Button>
       </Flex>
       <Image
