@@ -14,6 +14,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  ModalCloseButton,
   Text,
   useBreakpointValue
 } from '@chakra-ui/react';
@@ -31,6 +32,16 @@ export default function DrawerForm() {
     <Drawer isOpen={isOpen} placement='right' size='lg' onClose={onClose}>
       <DrawerOverlay bg='whiteAlpha.700'>
         <DrawerContent>
+          {!isWideVersion == false ? '' : <Flex justify='end'>
+            <ModalCloseButton
+              bg='orange.500'
+              color='white'
+              rounded='full'
+              _hover={{
+                bgColor: 'orange.600'
+              }}
+            />
+          </Flex>}
           <DrawerHeader ml='6'>
             <Flex>
               <Image src='/assets/icone-criar.svg' boxSize='12' mr='4' />
