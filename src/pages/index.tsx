@@ -74,7 +74,13 @@ export default function Home() {
           </SimpleGrid>
           {pokemon.name ? null :
             <Flex justify='center' my='10'>
-              <Button colorScheme='orange' onClick={getPokemons}>
+              <Button
+                colorScheme='orange'
+                size='lg'
+                fontSize='lg'
+                shadow='md'
+                onClick={getPokemons}
+              >
                 Carregar Mais
               </Button>
             </Flex>}

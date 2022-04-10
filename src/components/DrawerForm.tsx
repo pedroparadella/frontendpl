@@ -9,18 +9,23 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  FormHelperText,
   FormLabel,
   Image,
   Input,
   InputGroup,
   InputRightElement,
-  Text
+  Text,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { useDrawerForm } from '../contexts/DrawerFormContext';
 
 export default function DrawerForm() {
   const { isOpen, onClose } = useDrawerForm();
+
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
 
   return (
     <Drawer isOpen={isOpen} placement='right' size='lg' onClose={onClose}>
@@ -56,7 +61,7 @@ export default function DrawerForm() {
                 id='title'
                 size='lg'
                 h='60px'
-                placeholder='Nenhum arquivo selecionado'
+                placeholder={isWideVersion == false ? '' : 'Nenhum arquivo selecionado'}
               />
               <InputRightElement w='224px' h='48px' mt='1.5'>
                 <Button size='lg' variant='outline' colorScheme='orange'>
