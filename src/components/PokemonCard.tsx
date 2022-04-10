@@ -5,9 +5,14 @@ import { RiDeleteBinLine, RiPencilLine } from 'react-icons/ri';
 import { useDrawerForm } from '../contexts/DrawerFormContext';
 import { useModalDelete } from '../contexts/Modals/ModalDeleteContext';
 
-import { PokemonType } from '../types/pokemon.type';
+interface PokemonProps {
+  name: string;
+  sprite: string;
+  shinySprite: string;
+  type: string;
+}
 
-export function PokemonCard({ name, sprite, shinySprite, type }: any) {
+export function PokemonCard({ name, sprite, shinySprite, type }: PokemonProps) {
   const onOpenDrawerForm = useDrawerForm().onOpen;
   const onOpenModalDelete = useModalDelete().onOpen;
 
