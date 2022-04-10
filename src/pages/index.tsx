@@ -96,7 +96,8 @@ export default function Home() {
               <div key={pokemon.id}>
                 <PokemonCard
                   name={pokemon.name}
-                  sprites={pokemon.sprites.front_default}
+                  sprite={pokemon.sprites.front_default}
+                  shinySprite={pokemon.sprites.front_shiny}
                 />
               </div>
               :
@@ -104,7 +105,8 @@ export default function Home() {
                 <div key={pokemon.id}>
                   <PokemonCard
                     name={pokemon.name}
-                    sprites={pokemon.sprites.front_default}
+                    sprite={pokemon.sprites.front_default}
+                    shinySprite={pokemon.sprites.front_shiny}
                   />
                 </div>
               ))
