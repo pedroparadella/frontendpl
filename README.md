@@ -6,7 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Optei por não colocar o .ev no gitignore para que ao rodar na máquina de qualquer um a requisição do Clima Tempo funcionasse sem se preocupar com variáveis de ambiente.
 
-A busca não está em tempo real, precisa clicar no botão. Não precisa digitar o nome todo do pokémon para que ela traga algo. Por exemplo, ao digitar "bul", ela trará todos os pokémons que contenham essa string.
+## Features
+
+- Responsivo.
+
+- Busca : 
+1 - Sugestão na busca. A partir de 3 caracteres a busca mostra uma sugestão de nomes, que quando clicados já realizam a busca nessa string. 
+2 - Clicando no botão de busca, ela traz todas as strings que possuem a sequência de caracteres que está digitada no input.
+
+- Cards tem frente e costa.
 
 ## Available Scripts
 

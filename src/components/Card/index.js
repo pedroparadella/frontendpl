@@ -6,9 +6,11 @@ import axios from "axios";
 import edit from '../../assets/icons/edit.svg'
 import trash from '../../assets/icons/trash.svg'
 
+
 const Card = ({data, handleDisabladButtons }) => {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isOpened, setIsOpened] = useState('');
 
     useEffect(() => {
         setIsLoading(true);
@@ -20,13 +22,24 @@ const Card = ({data, handleDisabladButtons }) => {
             })
     }, [data])
 
+    const handleFlip = (id) => {
+        setIsOpened(id)
+    }
+
+    const handleClose = () => {
+        setTimeout(setIsOpened(''), 5000)
+    }
+
     return(
-        <S.Container>
-           {isLoading ? (
+        <S.Container onMouseLeave={handleClose} >
+           <S.InnerCard  flip={ isOpened === pokemon.id}>
+            <S.cardFront>
+            {isLoading ? (
                <S.FakeImage />
            ) :
            <S.Image src={pokemon?.sprites?.front_default} alt="Pokemon"/>
-        }
+            }
+            <S.Flip id='flip' onClick={() => handleFlip(pokemon.id)} ></S.Flip>
             <S.Text>{pokemon.name}</S.Text>
             <S.ButtonBox>
             <S.Button onClick={handleDisabladButtons} >
@@ -37,6 +50,12 @@ const Card = ({data, handleDisabladButtons }) => {
                 <S.Icon src={edit} alt="Editar"/> Editar
             </S.Button>
             </S.ButtonBox>
+            </S.cardFront>
+            <S.cardBack>
+                <S.BackImage src={pokemon?.sprites?.front_shiny} alt="Pokemon"/>
+                <S.BackText>{pokemon.name}</S.BackText>
+            </S.cardBack>
+           </S.InnerCard>
         </S.Container>
     )
 

@@ -9,28 +9,33 @@ import Time from "./components/Time";
 
 
 const Container = styled.div`
-  overflow: ${props => (props.isModalOpen ? "hidden" : "auto")};
-  z-index: 1;
 `;
 
 
 
 function App() {
   const [data, setData] = useState([]);
+  const [allPokemons, setAllPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(0);
   const [isSearching, setIsSearching] = useState(false);
   const [queryList, setQueryList] = useState([]);
   const [isTimeOpened, setTimeOpened] = useState(false);
-  const [isModalOpen, setModalOpen] = useState(false);
 
 
-  const handleSearch = async (value) => {
+  const handleSearch = async (value, isSugestion) => {
+    if(isSugestion && value){
+      setIsSearching(true);
+      setPage(0);
+      const filteredData  = allPokemons.filter(item => item.name.toLowerCase() === value.toLowerCase());
+      setQueryList(filteredData);
+
+      return
+    }
+
+    
     if (value) {
-      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1200`)
-      const data = res.data.results
-      const filteredData = data.filter(item => item['name'].includes(value))
-
+      const filteredData = allPokemons.filter(item => item['name'].toLowerCase().includes(value.toLowerCase()))
       setQueryList(filteredData)
       setPage(0);
 
@@ -60,7 +65,15 @@ function App() {
     })(page)
   }, [page])
 
+  useEffect(() => {
+    (async function () {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1200`);
+      const data = res.data.results
+      setAllPokemons(data)
+    })();
+  })
 
+ 
   return (
     <>
       <Container>
@@ -69,6 +82,7 @@ function App() {
           setIsSearching={setIsSearching}
           handleSearch={handleSearch}
           setPage={setPage}
+          allPokemons={allPokemons}
         />
         <Main
           data={realData}

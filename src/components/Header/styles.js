@@ -10,6 +10,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 39px;
+    z-index: 3;
 `;
 
 export const TopBox = styled.div`
@@ -23,6 +24,7 @@ export const TopBox = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 13px 24px;
+    z-index: 4;
 `;
 
 export const Logo = styled.img`
@@ -39,6 +41,53 @@ export const SearchBox = styled.form`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+`;
+
+export const SugestionList = styled.ul`
+    width: 80%;
+    max-height: 200px;
+    padding: 13px 28px;
+    padding-right: 25px;
+    /* border-top: black solid 1px; */
+    box-shadow: 0px 3px 6px #E5E5E5;
+    list-style: none;
+    background: #fff;
+    position: absolute;
+    bottom: 38px;
+    border-radius: 0 0 8px 8px;
+    transform: translateY(100%);
+    z-index: 3;
+    overflow: auto;
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+`;
+
+export const Sugestion = styled.li`
+    font-size: 18px;
+    text-transform: capitalize;
+    border-bottom: solid 1px #bfb8b8;
+    margin-bottom: 8px;
+    padding: 4px;
+    cursor: pointer;
+    
+    &:hover {
+        font-weight: bold;
+    }
 `;
 
 export const Input = styled.input`
@@ -50,6 +99,10 @@ export const Input = styled.input`
     font-size: 24px;
     font-weight: 300;
     color: #757575;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
 `;
 
 export const Button = styled.button`
