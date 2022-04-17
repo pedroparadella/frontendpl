@@ -26,10 +26,6 @@ const Card = ({ data, handleDisabladButtons }) => {
         setIsOpened(id)
     }
 
-    const handleClose = () => {
-        setTimeout(setIsOpened(''), 5000)
-    }
-
     return (
         <S.Container >
             <S.InnerCard flip={isOpened === pokemon.id}>
