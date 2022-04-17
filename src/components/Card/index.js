@@ -31,7 +31,7 @@ const Card = ({ data, handleDisabladButtons }) => {
     }
 
     return (
-        <S.Container onMouseLeave={handleClose} >
+        <S.Container >
             <S.InnerCard flip={isOpened === pokemon.id}>
                 <S.cardFront>
                     {isLoading ? (
@@ -52,6 +52,7 @@ const Card = ({ data, handleDisabladButtons }) => {
                     </S.ButtonBox>
                 </S.cardFront>
                 <S.cardBack>
+                <S.Flip id='flip' onClick={() => handleFlip('')} ></S.Flip>
                     <S.BackImage src={pokemon?.sprites?.front_shiny} alt="Pokemon" />
                     <S.BackText>{pokemon.name}</S.BackText>
                 </S.cardBack>

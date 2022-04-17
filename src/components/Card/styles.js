@@ -34,9 +34,6 @@ export const InnerCard = styled.div`
     `};
 
 
-  /* :hover{
-    transform: rotateY(180deg);
-  } */
 `;
 
 export const cardFront = styled.div`
