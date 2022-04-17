@@ -8,12 +8,17 @@ import close from '../../assets/icons/close.png'
 
 const Time = ({ isTimeOpened, handleClickTime }) => {
   const [data, setData] = useState(null);
+  const [noData, setNoData] = useState(false);
 
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_URL_CLIMA)
       .then(res => {
-        setData(res.data)
+        if(res.data.length > 0){
+          setData(res.data)
+        } else {
+          setNoData(true)
+        }
       }
       )
 
@@ -22,9 +27,16 @@ const Time = ({ isTimeOpened, handleClickTime }) => {
   const renderTimeBox = () => {
     return (
       <S.TimeBox isOpen={isTimeOpened} >
-        <S.Country>{data[0].country}</S.Country>
-        <S.Date>{data[0].date.split('-').reverse().join('/')}</S.Date>
-        <S.Text>{data[0].text}</S.Text>
+        {!noData && (
+          <>
+            <S.Country>{data[0]?.country}</S.Country>
+          <S.Date>{data[0]?.date.split('-').reverse().join('/')}</S.Date>
+          <S.Text>{data[0]?.text}</S.Text>
+          </>
+        )}
+        {noData && (
+          <S.Country>Infelizmente a API não está retornanda nada! Mas assim que ela voltar a funcionar as informações aparecerão aqui :)</S.Country>
+        )}
         <S.CloseButton onClick={handleClickTime}>
           <S.Close src={close} alt="Fechar" onClick={handleClickTime} />
         </S.CloseButton>

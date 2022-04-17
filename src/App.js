@@ -71,7 +71,7 @@ function App() {
       const data = res.data.results
       setAllPokemons(data)
     })();
-  })
+  },[])
 
  
   return (

@@ -8,10 +8,10 @@ import back from '../../assets/icons/back.png'
 
 const Main = ({ data, count, page, setPage, isSearching, handleDisabladButtons }) => {
 
-    const totalPAge = Math.floor(count / 12) + 1;
+    const totalPage = Math.floor(count / 12) + 1;
 
     const handleClickNext = () => {
-        if ((page / 12) + 1 < totalPAge) {
+        if ((page / 12) + 1 < totalPage) {
             setPage(page + 12)
         }
     }
@@ -41,7 +41,7 @@ const Main = ({ data, count, page, setPage, isSearching, handleDisabladButtons }
                         <S.PaginationButton onClick={handleClickBack} >
                             <S.PaginationIcon src={back} alt="Next" />
                         </S.PaginationButton>
-                        <S.Total>Página {(page / 12) + 1} de  {totalPAge}</S.Total>
+                        <S.Total>Página {(page / 12) + 1} de  {totalPage}</S.Total>
                         <S.PaginationButton onClick={handleClickNext}  >
                             <S.PaginationIcon src={next} alt="Next" />
                         </S.PaginationButton>

@@ -8,7 +8,7 @@ Optei por não colocar o .ev no gitignore para que ao rodar na máquina de qualq
 
 ## Features
 
-- Site no ar: [https://marcus-pokeapi.netlify.app/] (https://marcus-pokeapi.netlify.app/)
+- Site no ar: [https://marcus-pokeapi.netlify.app/](https://marcus-pokeapi.netlify.app/)
 
 - Responsivo.
 
