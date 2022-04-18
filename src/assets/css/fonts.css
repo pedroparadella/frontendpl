@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Muli';
+    src: url('../fonts/Muli-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../fonts/Muli-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('../fonts/Muli-Regular.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
