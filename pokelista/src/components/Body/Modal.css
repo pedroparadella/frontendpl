@@ -1,0 +1,131 @@
+.myBtn {
+  border-radius: 8px;
+  width: 173px;
+  height: 48px;
+  background-color: #e76316;
+  border: none;
+  color: white;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #f6f4f6cc 0% 0% no-repeat padding-box;
+}
+
+.modal-content {
+  border: none !important;
+  margin-right: 0px !important;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  height: 100%;
+  width: 642px;
+  -webkit-animation-name: animateIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animateIn;
+
+  animation-duration: 0.4s;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content > div {
+  margin: 0px 35px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animateIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.closeBtn {
+  color: gray;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.modal-header {
+  color: #5f1478;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 30px 0;
+}
+.modal-header > h2 {
+  display: flex;
+  align-items: center;
+}
+.modal-header > h2 > img {
+  margin-right: 20px;
+}
+
+.modal-body {
+  padding: 40px 0 30px 0;
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  margin: 40px 0 30px 0;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 25px 0px;
+  color: white;
+}
+
+.form-chunk {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0px;
+}
+
+.form-chunk label {
+  margin-bottom: 12px;
+  color: #454545;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-chunk input {
+  height: 60px;
+  border: #b9b9b9 1px solid;
+  border-radius: 8px;
+  color: #454545;
+  font-size: 18px;
+}
+
+.inputImg button{
+color: red;
+}
