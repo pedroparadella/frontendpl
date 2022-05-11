@@ -1,0 +1,7 @@
+.separator {
+  border: none;
+  border-top: 1px solid #f0eff0;
+  height: 0;
+  width: 75%;
+  margin: 0 12.5%;
+}

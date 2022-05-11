@@ -1,0 +1,53 @@
+header {
+  height: 261px;
+  background: transparent url("../../images/fundo-busca@2x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.ribbon {
+  background: transparent
+    linear-gradient(272deg, #ae276f 0%, #5f1478 100%) 0% 0% no-repeat
+    padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+
+  height: 64px;
+
+  align-items: center;
+  display: flex;
+  justify-items: flex-start;
+
+  flex: 0 1 auto;
+}
+
+.header-content {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-search {
+  padding-left: 34px;
+  border-radius: 0.5rem;
+  height: 3.5rem;
+  width: 75%;
+  border-style: none;
+  font-size: larger;
+}
+
+.search-icon {
+  margin-left: -3.5rem;
+  cursor: pointer;
+}
+
+.input-search::placeholder {
+  padding-left: 2rem;
+  font-size: large;
+  font-family: "Muli";
+}

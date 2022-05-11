@@ -1,0 +1,45 @@
+.card-table {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  background-color: #f6f4f6;
+  width: 1104px;
+}
+
+main {
+  background-color: #f6f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bodyHeader {
+  color: #5F1478;
+  font-size: xx-large;
+  width: 1062px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px auto 20px auto;
+}
+
+
+.pageBtn{
+  border: 1px solid #5f1478;
+    border-radius: 8px;
+    background: none;
+    color: #5f1478;
+    font-size: large;
+    cursor: pointer;
+}
+.pageBtn:disabled{
+  color: gray;
+  border-color: gray;
+}
+
+.paginator{
+  display: flex;
+
+}
