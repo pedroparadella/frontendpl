@@ -1,22 +1,18 @@
 import { useState } from 'react'
-import './App.css'
 import { Header } from './components/Header/Header';
 import { Body } from './components/Body/Body';
 import './reset.css';
+import './App.css'
 
 export function App() {
 
-const [itemName, setItemName] = useState<string>('')
-  function handleName(name:string){
-    setItemName(name)
-    console.log(name)
-  }
+  const [searchStr, setSearchStr] = useState('')
+
 
   return (
     <>
-      <Header itemNameHandler={(name:string)=>handleName(name)} />
-      <div>{itemName}</div>
-      <Body itemName={itemName}/>
+      <Header itemNameHandler={setSearchStr} />
+      <Body searchStr={searchStr} />
 
     </>
 

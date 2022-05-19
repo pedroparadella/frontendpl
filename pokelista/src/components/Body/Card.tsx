@@ -1,45 +1,50 @@
 import ReactDOM from 'react-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Card.css"
 import pokeDollar from '../../images/PokémonDollar_ColoXD.png'
-import { PokeAPI } from '../../utils/pokeAPI'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan, faPencil } from '@fortawesome/free-solid-svg-icons'
-import {Separator} from './Separator'
-type cardProps = {
-    name: string;
-};
+import { Separator } from './Separator'
+import axios from 'axios'
 
 
-export function Card(props: cardProps) {
-    const [sprite, setSprite] = useState<string>("")
-    const [cost, setCost] = useState<string>("")
-    const api = new PokeAPI()
+interface Props {
+    name: string
+}
 
-    api.getItemByName(props.name).then((result) => {
-        setSprite(result.sprites.default)
-        setCost(result.cost)
-    })
+interface IItem {
+    name: string,
+    sprite: string,
+    cost: string
+}
+
+export default function Card(props: Props) {
+    const [item, setItem] = useState<IItem>({name: '', sprite: '', cost: ''})
+
+    useEffect(() => {
+        axios.get('https://pokeapi.co/api/v2/item/' + props.name).then(response => {
+            setItem({ name: response.data.name, cost: response.data.cost, sprite: response.data.sprites.default})
+        })
+    }, [])
 
 
 
     return (
-
         <div className="card">
             <div className="imgContainer center">
                 <div className="imgCircle center">
-                    {/* <img src={sprite} /> */}
+                    <img src={item.sprite} />
                 </div>
             </div>
             <Separator />
             <div className="namePriceContainer center">
-                <p>{props.name}</p>
-                <p><img className="pokeDollar"src={pokeDollar} />{cost}</p>
+                <p>{item.name}</p>
+                <p><img className="pokeDollar" src={pokeDollar} />{item.cost}</p>
 
             </div>
             <div className="btnContainer center">
-                <div id="excluirBtn" onClick={() => alert("Função de exclusão não implementada")}> <FontAwesomeIcon icon={faTrashCan} />Excluir</div>
-                <div id="editarBtn"onClick={() => alert("Função de edição não implementada")}><FontAwesomeIcon icon={faPencil} />Editar</div>
+                <div id="excluirBtn" onClick={() => alert("Função de exclusão não implementada")}> {/*<FontAwesomeIcon icon={faTrashCan} />*/}Excluir</div>
+                <div id="editarBtn" onClick={() => alert("Função de edição não implementada")}>{/*<FontAwesomeIcon icon={faPencil} />*/}Editar</div>
             </div>
         </div>
     )
