@@ -6,6 +6,10 @@ Projeto desenvolvido com ReactJS;
 
 Antes de começar você preciosa ter instalado na sua máquina as ferramentas [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 
+### Link do site online
+
+https://62a87aebfc554a1b95807bf2--fontendpleno.netlify.app/
+
 ### Rodando o Projeto
 
 ```bash
