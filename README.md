@@ -1,29 +1,38 @@
-# Avaliação Pleno
-Olá desenvolvedor!\
-Tudo bem?! 😊\
-\
-Seja bem-vindo, o intuito do teste não é reprovar e sim conhecer seu melhor estilo de programar e resolver problemas.
+## Projeto Front-end Pleno
 
-## O que fazer
-1. Crie um repositório no GitHub.
-2. Use esse repositório para desenvolver a aplicação.
-3. Replicar o layout do link abaixo:\
-[Link para o layout](https://xd.adobe.com/view/c715f110-fbd4-4323-be0c-0e453c1450db-9246)
-4. Utilizar a [PokeAPI](https://pokeapi.co/) para trazer os itens e renderizar nos cards da melhor forma possível. Você pode escolher quais informações e imagens vão aparecer no card.
-5. Implementar a funcionalidade de busca na melhor forma possível.
-6. Implementar a funcionalidade de paginação(carregar mais) dos cards na melhor forma possível.
-7. Os cliques nos botões de editar/excluir/novo card podem exibir uma mensagem pro usuário de que a funcionalidade não foi implementada.
-8. Ao finalizar a avaliação crie um README na raiz do repositório com as instruções de como podemos fazer o seu código rodar na nossa máquina. Ou seja, passo a passo do que instalar e de quais comandos rodar para podermos visualizar o seu trabalho!
-9. Ao finalizar a sua avaliação enviar um e-mail para processoseletivo@impar.com.br com o assunto "Avaliação Pleno", informando que finalizou a avaliação e colocando o link do seu repositório GitHub com o código feito. 
+Projeto desenvolvido com ReactJS;
 
-## Dicas
-* Não foi definido limite de linhas e colunas, portanto fique à vontade para tal escolha.
-* Gostamos de interfaces limpas e elegantes.
+### O que precisa para rodar o projeto?
 
-## Quais tecnologias usar
-* Deixaremos a seu critério qual tecnologia utilizar no entanto você terá mais pontos conosco se utilizar React para criação da interface e também o uso de pré-processadores/styled-components para o CSS.
+Antes de começar você preciosa ter instalado na sua máquina as ferramentas [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 
-## Desafios se você se sentir confiante
-* Colocar em algum lugar do site uma integração com o clima tempo. Deixaremos a seu critério de onde colocar e quais funcionalidades terá.
-* Precisa ser criada uma conta free para o consumo da API clima tempo.
-* [Link da API clima tempo](https://advisor.climatempo.com.br/)
+### Rodando o Projeto
+
+```bash
+# Abra o terminal e clone o repositório
+$ git clone https://github.com/gabrielluiz01/frontendpl.git
+
+# Entre na página do projeto via terminal
+$ cd frontendpl
+
+# Instale todas as dependências
+$ yarn install ou npm install
+
+# Execute a aplicação
+$ yarn start ou npm start
+
+# A aplicação iniciará na porta 3000 - acesse <http://localhost:3000>
+```
+
+### 🛠 Tecnologias
+
+Para a criação dessa aplicação usei as seguintes ferramentas:
+
+- [React](https://pt-br.reactjs.org/);
+- [Styled-components](https://styled-components.com/);
+- [Axios](https://axios-http.com/ptbr/);
+- [Weather-API](https://www.weatherapi.com/);
+- [PokeAPI](https://pokeapi.co/);
+- Usei também o Context-API para gerenciar melhor os estados dentro da minha aplicação - [ContextAPI](https://pt-br.reactjs.org/docs/context.html);
+
+Feito por Gabriel Luiz 👋😃
