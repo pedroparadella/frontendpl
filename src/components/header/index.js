@@ -5,7 +5,7 @@ import axios from "axios";
 import logo from "../../assets/logo-teste.svg";
 
 export default function Header() {
-  const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState(undefined);
   const API_KEY = "d465818239744b0eadd125701220206";
   const API_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=Rio de Janeiro&aqi=no`;
 
@@ -22,17 +22,20 @@ export default function Header() {
     }
   };
 
+  console.log('wheare', weather)
+
   return (
     <Container>
       <img src={logo} alt="logo" />
-
-      <WeatherBox>
-        <img src={weather?.current?.condition?.icon} />
-        <span>
-          <p>{weather?.location?.name}</p>
-          <p>{weather?.current?.temp_c}ºC</p>
-        </span>
-      </WeatherBox>
+      {weather !== undefined && (
+        <WeatherBox>
+          <img src={weather?.current?.condition?.icon} />
+          <span>
+            <p>{weather?.location?.name}</p>
+            <p>{weather?.current?.temp_c}ºC</p>
+          </span>
+        </WeatherBox>
+      )}
     </Container>
   );
 }
