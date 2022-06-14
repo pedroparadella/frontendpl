@@ -44,11 +44,11 @@ export default function ModalCreate({ setNewCard, newCard }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const renderInputFile = () => (
-    <InputBox isError={isError} image={image || isEdit}>
+    <InputBox isError={isError} image={image}>
       <Label>Inclue uma imagem para aparecer no card</Label>
       <label for="image" className="file">
         <p>
-          {image || isEdit
+          {image
             ? "Imagem Selecionada"
             : "Nenhuma imagem selecionada"}
         </p>
