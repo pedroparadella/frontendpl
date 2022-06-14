@@ -22,7 +22,6 @@ export default function Header() {
     }
   };
 
-  console.log('wheare', weather)
 
   return (
     <Container>
